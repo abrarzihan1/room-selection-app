@@ -1,20 +1,26 @@
 import React from 'react';
-import './Login.css'; 
+import './Login.css';
 
 const Login = () => {
     return (
         <div className="login-container">
-            <h2>Teacher Login</h2>
-            <form action="/login" method="POST">
-                <label htmlFor="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username" required />
-
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required />
-
-                <input type="submit" value="Login" />
-            </form>
-            <p>Don't have an account? <a href="/signup">Register here</a></p>
+            <div className="login-box">
+                <h2>TeachSpace</h2>
+                <form>
+                    <div className="input-container">
+                        <label>Email</label>
+                        <input type="email" placeholder="Enter your email" />
+                    </div>
+                    <div className="input-container">
+                        <label>Password</label>
+                        <input type="password" placeholder="Enter your password" />
+                    </div>
+                    <button type="submit" className="login-button">Login</button>
+                </form>
+                <div className="signup-link">
+                    Don't have an account? <a href="/signup">Register here</a>
+                </div>
+            </div>
         </div>
     );
 };

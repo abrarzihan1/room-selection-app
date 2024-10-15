@@ -9,4 +9,5 @@ The teacher can log in and create accounts.
 
 Prototype login page: https://abrarzihan1.github.io/project-sde/
 
+Figma design:
 ![image](https://github.com/user-attachments/assets/60b4c0f3-980f-4ea8-8f94-676fccb605b4)

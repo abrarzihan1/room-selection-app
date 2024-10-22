@@ -3,9 +3,11 @@ package hu.unideb.inf.roomselectionapp.SpringDataJpa.service.implementation;
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.model.Teacher;
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.repository.TeacherRepository;
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.service.TeacherService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TeacherServiceImpl implements TeacherService {
 
 

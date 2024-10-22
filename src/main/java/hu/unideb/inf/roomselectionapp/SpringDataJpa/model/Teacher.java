@@ -1,6 +1,13 @@
 package hu.unideb.inf.roomselectionapp.SpringDataJpa.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "teacher_info")
 public class Teacher {
+    @Id
     private String  teacherId;
     private String name;
     private String email;

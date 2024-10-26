@@ -1,0 +1,11 @@
+POST http://localhost:8081/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": 12345
+}
+
+###
+GET http://localhost:8081/api/private/teacher/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxLHVzZXIsdXNlciIsImlhdCI6MTcyOTkzNzgxNiwiZXhwIjoxNzI5OTM3OTk2fQ.dHs1G6cgf9lKo5gj95EVV0_6FcRvhTqnhiZMUWmoXk0

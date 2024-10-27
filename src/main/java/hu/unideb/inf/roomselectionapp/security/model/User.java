@@ -1,9 +1,7 @@
 package hu.unideb.inf.roomselectionapp.security.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import hu.unideb.inf.roomselectionapp.SpringDataJpa.model.Teacher;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -21,6 +19,8 @@ public class User implements UserDetails {
     private String username;
     private String password;
     private String role;
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+    private Teacher teacher;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

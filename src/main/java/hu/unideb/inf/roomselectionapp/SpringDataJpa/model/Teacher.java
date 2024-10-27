@@ -1,8 +1,7 @@
 package hu.unideb.inf.roomselectionapp.SpringDataJpa.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import hu.unideb.inf.roomselectionapp.security.model.User;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -16,6 +15,9 @@ public class Teacher {
     private String name;
     private String email;
     private String department;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public String getTeacherId() {
         return teacherId;

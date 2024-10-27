@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -21,31 +20,47 @@ import java.io.IOException;
 public class JwtValidationFilter extends OncePerRequestFilter {
     private final JwtTokenUtil jwtTokenUtil;
 
+    private static final String TOKEN_PREFIX = "Bearer ";
+
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
+
         String header = request.getHeader("Authorization");
-        if (header != null && header.startsWith("Bearer ")) {
-            String token = header.substring(7);
+
+        if (isTokenPresent(header)) {
+            String token = header.substring(TOKEN_PREFIX.length());
+
             if (jwtTokenUtil.validateToken(token)) {
-                Claims claims = jwtTokenUtil.getClaimsFromToken(token);
-                String subject = claims.getSubject();
-                String[] subArray = subject.split(",");
+                try {
+                    Claims claims = jwtTokenUtil.getClaimsFromToken(token);
+                    User user = createUserFromClaims(claims);
 
-                User user = new User();
-                user.setId(Integer.parseInt(subArray[0]));
-                user.setUsername(subArray[1]);
-                user.setRole(subArray[2]);
+                    UsernamePasswordAuthenticationToken authentication =
+                            new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
 
-                SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
-                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
-                securityContext.setAuthentication(authentication);
-                SecurityContextHolder.setContext(securityContext);
-                filterChain.doFilter(request, response);
-            } else {
-                filterChain.doFilter(request, response);
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                } catch (Exception e) {
+                    logger.warn("Failed to parse JWT token", e);
+                }
             }
-        } else {
-            filterChain.doFilter(request, response);
         }
+
+        filterChain.doFilter(request, response);
+    }
+
+    private boolean isTokenPresent(String header) {
+        return header != null && header.startsWith(TOKEN_PREFIX);
+    }
+
+    private User createUserFromClaims(Claims claims) {
+        String[] subjectParts = claims.getSubject().split(",");
+        User user = new User();
+
+        user.setId(Integer.parseInt(subjectParts[0]));
+        user.setUsername(subjectParts[1]);
+        user.setRole(subjectParts[2]);
+
+        return user;
     }
 }

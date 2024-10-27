@@ -3,25 +3,19 @@ package hu.unideb.inf.roomselectionapp.SpringDataJpa.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "teacher_info")
 public class Teacher {
     @Id
-    private String  teacherId;
+    private String teacherId;
     private String name;
     private String email;
     private String department;
-
-    public Teacher() {
-    }
-
-    public Teacher(String teacherId, String name, String email, String department) {
-        this.teacherId = teacherId;
-        this.name = name;
-        this.email = email;
-        this.department = department;
-    }
 
     public String getTeacherId() {
         return teacherId;

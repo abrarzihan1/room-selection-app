@@ -11,8 +11,6 @@ import java.util.List;
 
 public class TeacherController {
 
-
-
     TeacherService teacherService;
 
     Teacher teacher;
@@ -21,7 +19,7 @@ public class TeacherController {
         this.teacherService = teacherService;
     }
 
-    @GetMapping("{teacherId}")
+    @GetMapping("/get/{teacherId}")
     public Teacher getTeacher(@PathVariable("teacherId") String teacherId){
         return  teacherService.getTeacher(teacherId);
 //                new Teacher("CS-001","Adamko Atilla Tamas","Adamk123@gmail.com","Computer Science");

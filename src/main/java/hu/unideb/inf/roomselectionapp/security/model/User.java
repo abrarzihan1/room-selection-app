@@ -1,6 +1,8 @@
 package hu.unideb.inf.roomselectionapp.security.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -14,7 +16,8 @@ import java.util.List;
 @Entity
 public class User implements UserDetails {
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String username;
     private String password;
     private String role;

@@ -57,7 +57,7 @@ public class AuthController {
 
         User savedUser = userRepository.save(user);
 
-        Teacher teacher = new Teacher(savedUser.getUsername(), signupRequest.getName(), signupRequest.getEmail(), signupRequest.getDepartment());
+        Teacher teacher = new Teacher(savedUser.getUsername(), signupRequest.getName(), signupRequest.getEmail(), signupRequest.getDepartment(),savedUser);
 
         teacherRepository.save(teacher);
 

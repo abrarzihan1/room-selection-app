@@ -23,7 +23,7 @@ const Login = ({ onLoginSuccess }) => {
                 const data = await response.json();
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('username', data.username);
-                onLoginSuccess(); // Update authentication state in App.js
+                onLoginSuccess(); // Update authentication state in App.jsx
                 navigate('/dashboard'); // Redirect to dashboard
             } else {
                 const errorMessage = await response.text();

@@ -19,6 +19,13 @@ public class Teacher {
     @JoinColumn(name = "user_id")
     private User user;
 
+    public Teacher(String teacherId, String name, String email, String department) {
+        this.teacherId = teacherId;
+        this.name = name;
+        this.email = email;
+        this.department = department;
+    }
+
     public String getTeacherId() {
         return teacherId;
     }

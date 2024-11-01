@@ -17,7 +17,12 @@ const Dashboard = () => {
 
     useEffect(() => {
         if (username) {
-            axios.get(url, { withCredentials: true })
+            axios.get(url, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+                withCredentials: true
+            })
                 .then(response => {
                     setTeacher(response.data); // Store the fetched data in state
                 })
@@ -26,6 +31,7 @@ const Dashboard = () => {
                 });
         }
     }, [username]);
+
 
     return (
         <div className="dashboard-container">

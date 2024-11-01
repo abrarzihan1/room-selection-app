@@ -7,9 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/room")
+@RequestMapping("/api/private/room")
 public class RoomController {
-
 
     private Room room;
     private RoomService roomService;

@@ -25,8 +25,7 @@ const Dashboard = () => {
                     console.error('Error fetching data:', error);
                 });
         }
-    }, [username]);
-
+    },[url,username]);
     return (
         <div className="dashboard-container">
             <h2>Welcome to the Dashboard!</h2>

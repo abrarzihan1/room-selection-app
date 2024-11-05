@@ -1,0 +1,18 @@
+
+
+.about{
+    margin: 100px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    flex-direction: column;
+
+}
+.about h3{
+    font-size: 60px;
+    font-weight: 600px;
+    color: #212121;
+    margin-bottom: 1rem;
+
+}

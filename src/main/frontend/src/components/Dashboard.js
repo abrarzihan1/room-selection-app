@@ -30,6 +30,8 @@ const Dashboard = () => {
                     console.error('Error fetching data:', error);
                 });
         }
+    },[url,username]);
+
     }, [username]);
 
 

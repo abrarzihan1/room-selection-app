@@ -1,6 +1,6 @@
 package hu.unideb.inf.roomselectionapp.security.controller;
 
-import hu.unideb.inf.roomselectionapp.SpringDataJpa.model.Teacher;
+import  hu.unideb.inf.roomselectionapp.SpringDataJpa.model.Teacher;
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.repository.TeacherRepository;
 import hu.unideb.inf.roomselectionapp.security.model.AuthRequest;
 import hu.unideb.inf.roomselectionapp.security.model.AuthResponse;

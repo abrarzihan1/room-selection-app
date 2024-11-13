@@ -40,7 +40,7 @@ public class AuthController {
             String token = jwtTokenUtil.generateToken(user);
             return ResponseEntity.ok(new AuthResponse(token, user.getUsername()));
         } catch (BadCredentialsException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid login");
         }
     }
 

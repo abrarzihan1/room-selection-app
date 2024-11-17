@@ -2,9 +2,7 @@ package hu.unideb.inf.roomselectionapp.SpringDataJpa.controller;
 
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.model.Room;
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.model.RoomSearchCriteria;
-import hu.unideb.inf.roomselectionapp.SpringDataJpa.repository.RoomRepository;
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.service.RoomService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,8 +11,7 @@ import java.util.List;
 @RequestMapping("/api/public/room")
 public class RoomController {
 
-    private Room room;
-    private RoomService roomService;
+    private final RoomService roomService;
 
     public RoomController(RoomService roomService) {
         this.roomService = roomService;

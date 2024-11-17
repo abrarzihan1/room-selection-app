@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
+import Booking from "./components/booking/Booking";
+import BookingForm from "./components/booking/BookingForm";
+import BookingRoom from "./components/booking/BookingRoom";
 
 const App = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
@@ -29,6 +32,10 @@ const App = () => {
                     path="/dashboard"
                     element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />}
                 />
+                {/*<Route path={"/booking"} element={<RoomBookingFlow/>}/>*/}
+                <Route path="/booking/time" element={<Booking />} />
+                <Route path={"/booking/form"} element={<BookingForm />} />
+                <Route path={"/booking/room"} element={<BookingRoom />} />
                 <Route path="*" element={<Navigate to="/login" />} />
             </Routes>
         </Router>

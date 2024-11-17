@@ -32,9 +32,6 @@ const Dashboard = () => {
         }
     },[url,username]);
 
-    }, [username]);
-
-
     return (
         <div className="dashboard-container">
             <h2>Welcome to the Dashboard!</h2>

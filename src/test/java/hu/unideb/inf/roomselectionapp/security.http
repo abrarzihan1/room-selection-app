@@ -21,3 +21,15 @@ Content-Type: application/json
   "department": "Robotics",
   "name": "Edward Doe"
 }
+
+###
+POST localhost:8082/api/public/room/search
+Content-Type: application/json
+
+{
+  "roomType": "CONFERENCE",
+  "capacity": 30,
+  "hasComputers": false,
+  "hasProjectors": false,
+  "hasWhiteBoard": false
+}

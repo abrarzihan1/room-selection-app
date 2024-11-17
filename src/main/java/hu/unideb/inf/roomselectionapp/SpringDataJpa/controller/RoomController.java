@@ -1,13 +1,16 @@
 package hu.unideb.inf.roomselectionapp.SpringDataJpa.controller;
 
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.model.Room;
+import hu.unideb.inf.roomselectionapp.SpringDataJpa.model.RoomSearchCriteria;
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.repository.RoomRepository;
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/private/room")
+@RequestMapping("/api/public/room")
 public class RoomController {
 
     private Room room;
@@ -20,7 +23,6 @@ public class RoomController {
     @GetMapping("/get/{roomId}")
     public Room getRoom(@PathVariable String roomId) {
         return roomService.getRoom(roomId);
-
     }
 
     @PostMapping
@@ -29,11 +31,8 @@ public class RoomController {
         return "Room Added Successfully";
     }
 
-
-
-
-
-
-
-
+    @PostMapping("/search")
+    public List<Room> searchRooms(@RequestBody RoomSearchCriteria criteria) {
+        return roomService.findRooms(criteria);
+    }
 }

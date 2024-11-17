@@ -23,10 +23,4 @@ public class Room {
     private boolean hasWhiteBoard;
     @Enumerated(EnumType.STRING)
     private RoomType roomType;
-
-
-
-
-
-
 }

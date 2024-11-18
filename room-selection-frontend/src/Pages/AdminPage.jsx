@@ -1,15 +1,16 @@
 import React from 'react'
 import Dashboard from '../components/Dashboard/Dashboard'
 import Sidebar from '../components/Sidebar/Sidebar'
+import "./AdminPage.css"
 
 
-const Admin = () => {
+const AdminPage = () => {
   return (
-    <div>
-      <Dashboard/>
-      <Sidebar/>
+    <div className="admin-page">
+      <Sidebar />
+      <Dashboard />
     </div>
-  )
-}
+  );
+};
 
-export default Admin
+export default AdminPage

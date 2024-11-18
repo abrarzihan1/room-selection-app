@@ -3,9 +3,10 @@ nav{
   background-color:rgb(2, 56, 70);
   color:#fff;
   padding: 4px 0 ;
-  position: fixed;
+  /* position: fixed;
   top: 0;
-  left: 0;
+  left: 0; */
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content:space-between;

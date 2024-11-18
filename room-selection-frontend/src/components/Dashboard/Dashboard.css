@@ -1,17 +1,27 @@
 .dashboard {
+  flex: 1;
+  padding: 20px;
+  background-color: #ecf0f1;
+}
+
+.title-row{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: white;
-  text-align: center;
+  width: 100%;
+  justify-content: space-between;
+  text-align: left;
+  color: gray;
+  padding: 10px 15px;
 }
-.sidebar{
-  background-color: white;
-  justify-content: left;
+.title-name,
+.item-name{
+  flex: 25%;
 }
-
-
-
-
+.item-row{
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 20px 15px;
+  border-radius: 5px;
+}

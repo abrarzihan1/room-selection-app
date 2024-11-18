@@ -1,15 +1,16 @@
 import React from 'react'
-
+import "./Sidebar.css"
 const Sidebar = () => {
   return (
-    <div className='sidebar'>
+    <div className="sidebar">
+      <h2>Name</h2>
       <ul>
-        <li>Dashboard</li>
-        <li>MyAppointment</li>
-        <li>MyProfile</li>
+        <li>Profile</li>
+        <li>Booking</li>
+        <li>Rooms</li>
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default Sidebar

@@ -1,6 +1,6 @@
   
   import React from 'react';
- import { Link ,NavLink } from 'react-router-dom';
+ import { Link } from 'react-router-dom';
   import './Navbar.css';
 
 
@@ -9,9 +9,9 @@
       <nav className='container'>
           <h2>TeachSpace</h2>
         <ul>
-          <NavLink to= '/Home'><li>Home</li></NavLink>  
-          <NavLink to= '/Login'> <li>Booking</li></NavLink>
-          <Link to= '/about us'><li>About Us</li></Link>
+          <Link to= '/Home'><li>Home</li></Link>  
+          <Link to= '/Login'> <li>Booking</li></Link>
+          <Link to= '/about'><li>About Us</li></Link>
             <Link to = '/login'><button className='btn'>Login </button></Link>
         </ul>
        </nav>

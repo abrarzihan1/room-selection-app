@@ -30,14 +30,12 @@ const Dashboard = () => {
           Date
         </div>
       </div>
-          {bookings.map((booking, index) => (
-            <div className='item-row' key={index}>
-              <div className='item-name'>{booking.roomId}</div>
-              <div className='item-name'>{booking.startTime}</div>
-              <div className='item-name'>{booking.endTime}</div>
-              <div className='item-name'>{booking.date}</div>
-            </div>
-          ))}
+          <div className='item-row'>
+            <div className='item-name'>101</div>
+            <div className='item-name'>12:00</div>
+            <div className='item-name'>14:00</div>
+            <div className='item-name'>12 Dec 2024</div>
+          </div>
     </div>
   );
 };

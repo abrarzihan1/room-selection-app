@@ -4,7 +4,7 @@ import axios from 'axios';
 import 'react-calendar/dist/Calendar.css';
 import './Booking.css';
 
-const Booking = () => {
+const BookingCalender = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [availableTimes, setAvailableTimes] = useState([]);
 
@@ -61,4 +61,4 @@ const Booking = () => {
     );
 };
 
-export default Booking;
+export default BookingCalender;

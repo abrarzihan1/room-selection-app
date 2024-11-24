@@ -11,6 +11,8 @@ import Home from './components/Pages/Home';
 import Register from './components/Register/Register';
 import './App.css'
 import About from "./components/Pages/About";
+import Profile from "./components/Profile/Profile";
+import Room from "./components/Room/Room";
 
 const App = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
@@ -35,9 +37,9 @@ const App = () => {
                         path="/dashboard"
                         element={isAuthenticated ? <AdminPage /> : <Navigate to="/login" />}
                     />
-                    <Route path="/booking/time" element={<Booking />} />
-                    <Route path="/booking/form" element={<BookingForm />} />
-                    <Route path="/booking/room" element={<BookingRoom />} />
+                    <Route path="/booking" element={<Booking />} />
+                    <Route path={"/profile"} element={<Profile />} />
+                    <Route path={"/room"} element={<Room />} />
                     <Route path="*" element={<Navigate to="/login" />} />
                 </Routes>
             </Layout>

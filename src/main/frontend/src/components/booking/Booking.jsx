@@ -1,64 +1,65 @@
-import React, { useState, useEffect } from 'react';
-import Calendar from 'react-calendar';
-import axios from 'axios';
-import 'react-calendar/dist/Calendar.css';
-import './Booking.css';
+import {useState} from 'react';
+import BookingStart from "./BookingStart";
+import BookingRoomCriteria from "./BookingRoomCriteria";
+import BookingDateTime from "./BookingDateTime";
+import Summary from "./Summary";
 
-const Booking = () => {
-    const [selectedDate, setSelectedDate] = useState(new Date());
-    const [availableTimes, setAvailableTimes] = useState([]);
+function Booking() {
+    const [bookingDetails, setBookingDetails] = useState({
+        name: '',
+        roomId: null,
+        date: new Date(),
+        time: ''
+    });
 
-    // Handle date selection
-    const onDateChange = (date) => {
-        setSelectedDate(date);
-        fetchAvailableTimes(date);
+    const [formData, setFormData] = useState({
+        roomType: '',
+        capacity: 0,
+        date: new Date(),
+        hasComputers: false,
+        hasProjectors: false,
+        hasWhiteBoard: false
+    });
+
+    const [currentStep, setCurrentStep] = useState(1);
+
+    const nextStep = () => {
+        setCurrentStep(prevStep => prevStep + 1);
     };
 
-    // Fetch available times for the selected date
-    const fetchAvailableTimes = async (date) => {
-        try {
-            const response = await axios.get('/api/available-times', {
-                params: { date: date.toISOString().split('T')[0] }
-            });
-            setAvailableTimes(response.data);
-        } catch (error) {
-            console.error('Error fetching available times:', error);
+    const prevStep = () => {
+        setCurrentStep(prevStep => prevStep - 1);
+    };
+
+    const handleChange = (key, value) => {
+        setBookingDetails(prevDetails => ({
+            ...prevDetails,
+            [key]: value,
+        }));
+    };
+
+    const renderStep = () => {
+        switch (currentStep) {
+            case 1:
+                return <BookingStart bookingDetails={bookingDetails} handleChange={handleChange} nextStep={nextStep} />;
+            case 2:
+                return <BookingRoomCriteria formData={formData} handleChange={handleChange} nextStep={nextStep} prevStep={prevStep} />;
+            case 3:
+                return <BookingDateTime bookingDetails={bookingDetails} handleChange={handleChange} nextStep={nextStep} prevStep={prevStep} />;
+            case 4:
+                return <Summary bookingDetails={bookingDetails} prevStep={prevStep} />;
+            // case 5:
+            //     return <DateTime bookingDetails={bookingDetails} handleChange={handleChange} nextStep={nextStep} prevStep={prevStep} />;
+            // case 6:
+            //     return <Summary bookingDetails={bookingDetails} prevStep={prevStep} />;
+            default:
+                return <div>Error: Step not found</div>;
         }
     };
 
-    useEffect(() => {
-        fetchAvailableTimes(selectedDate);
-    }, [selectedDate]);
-
     return (
-        <div className="booking-container">
-            <h2>Select date & time</h2>
-            <div className="booking-content">
-                <div className="calendar-container">
-                    <Calendar onChange={onDateChange} value={selectedDate}/>
-                    <p className="timezone">Time zone (Europe/Budapest)</p>
-                </div>
-                <div className="available-times-container">
-                    {selectedDate && (
-                        <>
-                            <h3>{selectedDate.toDateString()}</h3>
-                            <div className="time-grid">
-                                {availableTimes.length > 0 ? (
-                                    availableTimes.map((time, index) => (
-                                        <button key={index} className="time-button">
-                                            {time}
-                                        </button>
-                                    ))
-                                ) : (
-                                    <p>No available times for this date.</p>
-                                )}
-                            </div>
-                        </>
-                    )}
-                </div>
-            </div>
-        </div>
+        <div>{renderStep()}</div>
     );
-};
+}
 
 export default Booking;

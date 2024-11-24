@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import BookingRoom from "./BookingRoom";
 import "./BookingForm.css";
-import Sidebar from "../Sidebar/Sidebar";
 
 const BookingForm = () => {
     const [formData, setFormData] = useState({
@@ -48,8 +47,6 @@ const BookingForm = () => {
     }
 
     return (
-        <div className="booking-form-page">
-        <Sidebar />
         <div className="booking-form-container">
             <h2>Book a Room</h2>
             <form className="booking-form" onSubmit={handleSubmit}>
@@ -114,7 +111,6 @@ const BookingForm = () => {
                     Next
                 </button>
             </form>
-        </div>
         </div>
     );
 };

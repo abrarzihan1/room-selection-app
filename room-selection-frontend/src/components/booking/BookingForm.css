@@ -1,13 +1,12 @@
-.booking-form-page {
-    display: flex;
-    height: 100vh;
-}
-
 .booking-form-container {
     width: 100%;
     max-width: 500px;
     margin: 0;
     padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
 .booking-form-container h2 {
@@ -63,7 +62,7 @@ legend {
     padding: 10px 20px;
     font-size: 16px;
     color: #fff;
-    background-color: #050f34;
+    background-color: #e67644;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -71,5 +70,5 @@ legend {
 }
 
 .next-button:hover {
-    background-color: #050f34;
+    background-color: #e67644;
 }

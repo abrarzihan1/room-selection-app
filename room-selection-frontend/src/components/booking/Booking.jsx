@@ -1,70 +1,55 @@
-import React, { useState, useEffect } from 'react';
-import Calendar from 'react-calendar';
-import axios from 'axios';
-import 'react-calendar/dist/Calendar.css';
+import { useState } from 'react';
+import BookingStart from './BookingStart';
+import BookingRoomCriteria from './BookingRoomCriteria';
+import BookingDateTime from './BookingDateTime';
+import Summary from './Summary';
+import Sidebar from '../Sidebar/Sidebar';
 import './Booking.css';
-import Sidebar from "../Sidebar/Sidebar";
-import {Link} from "react-router-dom";
 
-const Booking = () => {
-    const [selectedDate, setSelectedDate] = useState(new Date());
-    const [availableTimes, setAvailableTimes] = useState([]);
+function Booking() {
+    const [formData, setFormData] = useState({
+        name: '',
+        roomType: '',
+        capacity: 0,
+        date: '',
+        hasComputers: false,
+        hasProjectors: false,
+        hasWhiteBoard: false,
+    });
 
-    // Handle date selection
-    const onDateChange = (date) => {
-        setSelectedDate(date);
-        fetchAvailableTimes(date);
+    const [currentStep, setCurrentStep] = useState(1);
+
+    const nextStep = () => setCurrentStep(prevStep => prevStep + 1);
+    const prevStep = () => setCurrentStep(prevStep => prevStep - 1);
+
+    const handleChange = (key, value) => {
+        setFormData(prevData => ({
+            ...prevData,
+            [key]: value,
+        }));
     };
 
-    // Fetch available times for the selected date
-    const fetchAvailableTimes = async (date) => {
-        try {
-            const response = await axios.get('/api/available-times', {
-                params: { date: date.toISOString().split('T')[0] }
-            });
-            setAvailableTimes(response.data);
-        } catch (error) {
-            console.error('Error fetching available times:', error);
+    const renderStep = () => {
+        switch (currentStep) {
+            case 1:
+                return <BookingStart formData={formData} handleChange={handleChange} nextStep={nextStep} />;
+            case 2:
+                return <BookingRoomCriteria formData={formData} handleChange={handleChange} nextStep={nextStep} prevStep={prevStep} />;
+            case 3:
+                return <BookingDateTime formData={formData} handleChange={handleChange} nextStep={nextStep} prevStep={prevStep} />;
+            case 4:
+                return <Summary formData={formData} prevStep={prevStep} />;
+            default:
+                return <div>Error: Step not found</div>;
         }
     };
 
-    useEffect(() => {
-        fetchAvailableTimes(selectedDate);
-    }, [selectedDate]);
-
     return (
-        <div className="booking-form-page">
-            <Sidebar />
         <div className="booking-container">
-            <h2>Select date & time</h2>
-            <div className="booking-content">
-                <div className="calendar-container">
-                    <Calendar onChange={onDateChange} value={selectedDate}/>
-                    <p className="timezone">Time zone (Europe/Budapest)</p>
-                </div>
-                <div className="available-times-container">
-                    {selectedDate && (
-                        <>
-                            <h3>{selectedDate.toDateString()}</h3>
-                            <div className="time-grid">
-                                {availableTimes.length > 0 ? (
-                                    availableTimes.map((time, index) => (
-                                        <button key={index} className="time-button">
-                                            {time}
-                                        </button>
-                                    ))
-                                ) : (
-                                    <p>No available times for this date.</p>
-                                )}
-                            </div>
-                        </>
-                    )}
-                </div>
-            </div>
-            <Link to= '/booking/form'><button>Go back</button></Link>
-        </div>
+            <Sidebar />
+            <div className="booking-content">{renderStep()}</div>
         </div>
     );
-};
+}
 
 export default Booking;

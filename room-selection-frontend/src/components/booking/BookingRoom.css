@@ -3,11 +3,6 @@
     padding: 20px;
 }
 
-.booking-room-page {
-    display: flex;
-    height: 100vh;
-}
-
 .room-list {
     list-style: none;
     padding: 0;

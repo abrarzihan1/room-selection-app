@@ -1,0 +1,16 @@
+.booking-room-container {
+    margin: 20px;
+    padding: 20px;
+}
+
+.room-list {
+    list-style: none;
+    padding: 0;
+}
+
+.room-item {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    border-radius: 5px;
+}

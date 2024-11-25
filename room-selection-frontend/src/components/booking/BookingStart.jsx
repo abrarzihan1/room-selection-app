@@ -1,16 +1,18 @@
 import React from 'react';
+import './BookingStart.css'
 
 function BookingStart({ formData, handleChange, nextStep }) {
     return (
         <div>
-            <h2>Choose Booking Name</h2>
+            <h1>Choose Booking Name</h1>
             <input
                 type="text"
                 placeholder="Enter booking name"
                 value={formData.name}
                 onChange={e => handleChange('name', e.target.value)}
+                className={"booking-start-input"}
             />
-            <button onClick={nextStep}>Next</button>
+            <button className={"navigation-button"} onClick={nextStep}>Next</button>
         </div>
     );
 }

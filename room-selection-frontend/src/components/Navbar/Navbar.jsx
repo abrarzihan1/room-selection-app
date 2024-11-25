@@ -6,7 +6,7 @@ import './Navbar.css';
       <nav className='container'>
           <h2 className={"teachspace"}>TeachSpace</h2>
         <ul>
-          <Link to= '/home'><li>Home</li></Link>
+          <Link to= '/'><li>Home</li></Link>
           <Link to= '/login'> <li>Booking</li></Link>
           <Link to= '/about'><li>About Us</li></Link>
             <Link to = '/login'><button className='btn'>Login </button></Link>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './BookingRoomCriteria.css'
 
 function BookingRoomCriteria({ formData, handleChange, nextStep, prevStep }) {
     const [error, setError] = useState('');
@@ -22,7 +23,7 @@ function BookingRoomCriteria({ formData, handleChange, nextStep, prevStep }) {
 
     return (
         <div className="criteria-container">
-            <h2>Select Room Criteria</h2>
+            <h1>Select Room Criteria</h1>
             {error && <p className="error-message">{error}</p>}
 
             <div className="room-type-section">
@@ -73,8 +74,8 @@ function BookingRoomCriteria({ formData, handleChange, nextStep, prevStep }) {
             </div>
 
             <div className="navigation-buttons">
-                <button onClick={prevStep}>Back</button>
-                <button onClick={validateAndProceed}>Next</button>
+                <button className={"navigation-button"} onClick={prevStep}>Back</button>
+                <button className={"navigation-button"} onClick={validateAndProceed}>Next</button>
             </div>
         </div>
     );

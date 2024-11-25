@@ -1,22 +1,20 @@
 .hero{
-  width: 100%;
-  min-height: 100vh;
+  flex: 1;
+  /*width: 100%;*/
+  height: 100%;
 /*background-image: url('./components/assets/kassai.jpg');*/
   background-color:rgb(151, 172, 177);
   background-size: cover;
   background-position: center;
   color: #fff;
-  
-  background-position: center;
-  color:#fff ;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
 }
 .hero-text{
   text-align: center;
   max-width: 800px;
-  
 }
 .hero-text h1{
   font-size: 60px;

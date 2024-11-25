@@ -2,6 +2,7 @@
   flex: 1;
   padding: 20px;
   background-color: #ecf0f1;
+  margin-left: 250px;
 }
 
 .title-row{
@@ -12,6 +13,7 @@
   color: gray;
   padding: 10px 15px;
 }
+
 .title-name,
 .item-name{
   flex: 25%;

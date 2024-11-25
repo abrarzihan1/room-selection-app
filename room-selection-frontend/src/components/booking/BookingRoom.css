@@ -1,16 +1,35 @@
-.booking-room-container {
-    margin: 20px;
-    padding: 20px;
-}
-
 .room-list {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
 }
 
 .room-item {
-    padding: 10px;
-    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.room-item.selected {
+    background-color: #d4d4f7;
+    border-color: #3453a8;
+}
+
+.select-room-button {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+}
+
+.select-room-button:hover {
+    background-color: #0056b3;
 }

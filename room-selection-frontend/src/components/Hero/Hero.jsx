@@ -4,7 +4,6 @@ import './Hero.css'
 
 const Hero = () => {
   return (
-    <section>
     <div className='hero'>
       <div className='hero-text'>
         <h1>Your space, Your schedule</h1>
@@ -12,7 +11,6 @@ const Hero = () => {
       </div>
       
     </div>
-    </section>
   )
 }
 

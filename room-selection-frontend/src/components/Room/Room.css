@@ -1,11 +1,10 @@
 .room-container {
     display: flex;
-    height: 100vh;
-    font-family: Arial, sans-serif;
+    margin-left: 250px;
 }
 
 .room-content {
     flex: 1;
-    padding: 20px;
+    padding: 40px;
     background-color: #f9f9f9;
 }

@@ -1,14 +1,3 @@
-.booking-container {
-    display: flex;
-    margin-left: 250px;
-}
-
-.booking-content {
-    flex: 1;
-    padding: 40px;
-    margin: 20px;
-}
-
 h2 {
     font-size: 1.5rem;
     color: #333;

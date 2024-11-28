@@ -1,10 +1,47 @@
-.room-container {
-    display: flex;
-    margin-left: 250px;
-}
-
-.room-content {
+.room-table-room-content {
     flex: 1;
     padding: 40px;
     background-color: #f9f9f9;
+    margin: 20px;
+}
+
+.room-table-title-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    text-align: left;
+    color: gray;
+    padding: 10px 15px;
+}
+
+.room-table-title-name, .room-table-item-name {
+    flex: 25%;
+}
+
+.room-table-item-row {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 20px 15px;
+    border-radius: 5px;
+}
+
+.room-search-container {
+    margin-bottom: 20px;
+}
+
+.room-search-input {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    margin: 0;
+    display: block;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.room-search-no-results {
+    text-align: center;
 }

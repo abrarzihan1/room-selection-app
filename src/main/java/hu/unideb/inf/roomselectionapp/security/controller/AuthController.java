@@ -54,13 +54,10 @@ public class AuthController {
         user.setUsername(signupRequest.getUsername());
         user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
         user.setRole("user");
-
         User savedUser = userRepository.save(user);
 
         Teacher teacher = new Teacher(savedUser.getUsername(), signupRequest.getName(), signupRequest.getEmail(), signupRequest.getDepartment(),savedUser);
-
         teacherRepository.save(teacher);
-
         return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully");
     }
 }

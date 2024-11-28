@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import BookingStart from './BookingStart';
-import BookingRoomCriteria from './BookingRoomCriteria';
+import BookingStart from './Start/BookingStart';
+import BookingRoomCriteria from './RoomCriteria/BookingRoomCriteria';
 import BookingDateTime from './BookingDateTime';
-import Summary from './Summary';
+import Summary from './Summary/Summary';
 import Sidebar from '../Sidebar/Sidebar';
 import './Booking.css';
-import BookingRoom from "./BookingRoom";
+import BookingRoom from "./Room/BookingRoom";
 
 function Booking() {
     const [formData, setFormData] = useState({
@@ -48,9 +48,9 @@ function Booking() {
     };
 
     return (
-        <div className="booking-container">
+        <div className="dashboard-container">
             <Sidebar />
-            <div className="booking-content">{renderStep()}</div>
+            <div className="dashboard-content">{renderStep()}</div>
         </div>
     );
 }

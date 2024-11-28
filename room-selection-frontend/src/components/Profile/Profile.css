@@ -1,10 +1,57 @@
-.profile-container {
-    display: flex;
-    margin-left: 250px;
+.profile-content h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-.profile-content {
-    flex: 1;
-    padding: 40px;
-    background-color: #f9f9f9;
+.profile-content p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 10px 0;
 }
+
+.profile-content strong {
+    font-weight: bold;
+}
+
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 20px 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #444;
+}
+
+.error-message {
+    color: #444;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        margin-left: 0;
+    }
+
+    .profile-content {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .profile-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .profile-content p {
+        font-size: 1rem;
+    }
+
+    .profile-container {
+        margin-left: 0;
+    }
+}
+

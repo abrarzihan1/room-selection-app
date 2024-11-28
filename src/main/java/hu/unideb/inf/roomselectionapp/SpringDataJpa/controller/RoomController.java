@@ -32,4 +32,9 @@ public class RoomController {
     public List<Room> searchRooms(@RequestBody RoomSearchCriteria criteria) {
         return roomService.findRooms(criteria);
     }
+
+    @GetMapping("/getAll")
+    public List<Room> getAllRooms() {
+        return roomService.getAllRooms();
+    }
 }

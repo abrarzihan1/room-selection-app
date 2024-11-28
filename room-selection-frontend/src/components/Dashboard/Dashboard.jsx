@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './Dashboard.css';
 import {useNavigate} from "react-router-dom";
+import Sidebar from "../Sidebar/Sidebar";
 
 
 const Dashboard = () => {
@@ -15,35 +16,39 @@ const Dashboard = () => {
     // }, []);
 
     return (
-        <div className="dashboard">
-            <h1>Dashboard</h1>
-            <div className='title-row'>
-                <div className='title-name'>
-                    Room ID
+        <div className="dashboard-container">
+            <Sidebar/>
+            <div className={"dashboard-content"}>
+                <h1>Dashboard</h1>
+                <div className='title-row'>
+                    <div className='title-name'>
+                        Room ID
+                    </div>
+                    <div className='title-name'>
+                        Start time
+                    </div>
+                    <div className='title-name'>
+                        End time
+                    </div>
+                    <div className='title-name'>
+                        Date
+                    </div>
                 </div>
-                <div className='title-name'>
-                    Start time
+                <div className='item-row'>
+                    <div className='item-name'>101</div>
+                    <div className='item-name'>12:00</div>
+                    <div className='item-name'>14:00</div>
+                    <div className='item-name'>12 Dec 2024</div>
                 </div>
-                <div className='title-name'>
-                    End time
+                <div className='item-row'>
+                    <div className='item-name'>103</div>
+                    <div className='item-name'>14:00</div>
+                    <div className='item-name'>16:00</div>
+                    <div className='item-name'>20 Dec 2024</div>
                 </div>
-                <div className='title-name'>
-                    Date
-                </div>
-            </div>
-            <div className='item-row'>
-                <div className='item-name'>101</div>
-                <div className='item-name'>12:00</div>
-                <div className='item-name'>14:00</div>
-                <div className='item-name'>12 Dec 2024</div>
-            </div>
-            <div className='item-row'>
-                <div className='item-name'>103</div>
-                <div className='item-name'>14:00</div>
-                <div className='item-name'>16:00</div>
-                <div className='item-name'>20 Dec 2024</div>
             </div>
         </div>
+
     );
 };
 

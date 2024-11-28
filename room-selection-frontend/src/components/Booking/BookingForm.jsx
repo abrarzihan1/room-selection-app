@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import BookingRoom from "./BookingRoom";
+import BookingRoom from "./Room/BookingRoom";
 import "./BookingForm.css";
 
 const BookingForm = () => {

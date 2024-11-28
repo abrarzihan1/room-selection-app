@@ -1,10 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import Sidebar from "../Sidebar/Sidebar";
-import "./Profile.css"
+import "./Profile.css";
 
 function Profile() {
     const [teacher, setTeacher] = useState(null);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
+
     const username = localStorage.getItem('username');
     const url = `api/private/teacher/get/${username}`;
 
@@ -17,28 +20,37 @@ function Profile() {
                 withCredentials: true
             })
                 .then(response => {
-                    setTeacher(response.data); // Store the fetched data in state
+                    setTeacher(response.data);
+                    setLoading(false);
                 })
                 .catch(error => {
-                    console.error('Error fetching data:', error);
+                    setError('Error fetching data. Please try again later.');
+                    setLoading(false);
                 });
+        } else {
+            setError('No username found in local storage.');
+            setLoading(false);
         }
-    },[url,username]);
+    }, [url, username]);
 
     return (
-        <div className={"profile-container"}>
+        <div className="dashboard-container">
             <Sidebar />
-            <div className="profile-content">
-                {teacher ? (
+            <div className="dashboard-content">
+                <h1>Teacher Information</h1>
+                {loading ? (
+                    <p>Loading data...</p>
+                ) : error ? (
+                    <p className="error-message">{error}</p>
+                ) : teacher ? (
                     <div>
-                        <h2>Teacher Information:</h2>
-                        <p>Username: {teacher.teacherId}</p>
-                        <p>Name: {teacher.name}</p>
-                        <p>Email: {teacher.email}</p>
-                        <p>Department: {teacher.department}</p>
+                        <div className={"profile-row"}><strong>Username</strong> {teacher.teacherId}</div>
+                        <div className={"profile-row"}><strong>Name</strong> {teacher.name}</div>
+                        <div className={"profile-row"}><strong>Email</strong> {teacher.email}</div>
+                        <div className={"profile-row"}><strong>Department</strong> {teacher.department}</div>
                     </div>
                 ) : (
-                    <p>Loading data...</p>
+                    <p>No teacher data found.</p>
                 )}
             </div>
         </div>

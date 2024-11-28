@@ -1,36 +1,96 @@
-nav{
-  width: 100%;
-  background-color:rgb(2, 56, 70);
-  color:#fff;
-  padding: 4px 0 ;
-  /* position: fixed;
-  top: 0;
-  left: 0; */
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content:space-between;
-  /*z-index: 10;*/
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
+nav {
+    width: 100%;
+    background-color: rgb(2, 56, 70);
+    color: #fff;
+    padding: 4px 0;
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /*z-index: 10;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-.logo{
-  width: 180px;
-}
-nav ul li{
-  display: inline-block;
-  list-style: none;
-  margin:5px 20px;
-  font-size: 20px;
-  cursor: pointer;
+.nav-link {
+    display: inline-block;
+    list-style: none;
+    margin: 5px 20px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .teachspace {
-  color: white;
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
+.nav-container {
+    padding-left: 2.5%;
+    padding-right: 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(2, 56, 70);
+    color: #fff;
+}
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    list-style: none;
+    margin: 5px 0 0;
+    padding: 0;
+    z-index: 10;
+    color: #202020;
+}
+
+.dropdown-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f5f5f5;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-link {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .dropdown-item-sidebar {
+        display: none;
+    }
+}

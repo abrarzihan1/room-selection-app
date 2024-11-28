@@ -4,7 +4,8 @@ import './BookingStart.css'
 function BookingStart({ formData, handleChange, nextStep }) {
     return (
         <div>
-            <h1>Choose Booking Name</h1>
+            <h1>Booking a Room</h1>
+            <p>Start by giving a name for your booking</p>
             <input
                 type="text"
                 placeholder="Enter booking name"

@@ -31,8 +31,12 @@ const BookingRoom = ({ formData, handleChange, nextStep, prevStep }) => {
         return (
             <div className="no-rooms">
                 <p>No rooms available for the selected criteria.</p>
-                <button onClick={prevStep}>Back</button>
-                <button onClick={nextStep}>Next</button>
+                <div className="navigation-buttons">
+                    <button className={"navigation-button"} onClick={prevStep}>Back</button>
+                    <button className={"navigation-button"} onClick={nextStep} disabled={!selectedRoom}>
+                        Next
+                    </button>
+                </div>
             </div>
         );
     }

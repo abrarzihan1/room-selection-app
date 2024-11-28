@@ -41,8 +41,7 @@ public class RoomImpl implements RoomService {
 
     @Override
     public List<Room> getAllRooms() {
-       return   roomRepository.findAll();
-
+       return roomRepository.findAll();
     }
 
     @Override

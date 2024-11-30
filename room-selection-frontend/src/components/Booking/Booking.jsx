@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import BookingStart from './Start/BookingStart';
 import BookingRoomCriteria from './RoomCriteria/BookingRoomCriteria';
-import BookingDateTime from './BookingDateTime';
+import BookingDateTime from './DateTime/BookingDateTime';
 import Summary from './Summary/Summary';
 import Sidebar from '../Sidebar/Sidebar';
 import BookingRoom from './Room/BookingRoom';

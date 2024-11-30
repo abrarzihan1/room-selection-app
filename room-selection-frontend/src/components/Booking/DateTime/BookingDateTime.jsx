@@ -6,14 +6,25 @@ function BookingDateTime({ formData, handleChange, nextStep, prevStep }) {
     const [dates, setDates] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const getTomorrowDate = () => {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        return tomorrow.toISOString().split("T")[0];
+    };
+
     useEffect(() => {
+        // Set the default date to tomorrow if not already set
+        if (!formData.date) {
+            handleChange('date', getTomorrowDate());
+        }
+
         const fetchTimes = async () => {
             try {
                 const response = await axios.post(
                     "/api/public/booking/available-times",
                     {
-                        'roomId': formData.roomId,
-                        'date': formData.date
+                        roomId: formData.roomId,
+                        date: formData.date || getTomorrowDate(),
                     }
                 );
                 setDates(response.data || []); // Ensure fallback to an empty array
@@ -25,7 +36,7 @@ function BookingDateTime({ formData, handleChange, nextStep, prevStep }) {
         };
 
         fetchTimes();
-    }, [formData]);
+    }, [formData, handleChange]);
 
     const handleDateSelect = (date) => {
         // Update both local selectedDate and formData.date
@@ -33,10 +44,10 @@ function BookingDateTime({ formData, handleChange, nextStep, prevStep }) {
     };
 
     const handleNext = () => {
-        if (formData.date) { // Check if formData.date is selected
+        if (formData.startTime) { // Check if a startTime is selected
             nextStep();
         } else {
-            alert('Please select a date before proceeding.');
+            alert('Please select a time before proceeding.');
         }
     };
 
@@ -45,28 +56,29 @@ function BookingDateTime({ formData, handleChange, nextStep, prevStep }) {
             <h2>Choose Date and Time</h2>
             <input
                 type="date"
-                value={formData.date || ''} // Ensure it's controlled properly
+                value={formData.date || getTomorrowDate()}
                 onChange={(e) => handleChange('date', e.target.value)}
                 className="date-input"
+                min={getTomorrowDate()}
             />
             {loading ? (
                 <div className="loading-message">Loading...</div>
             ) : (
                 <div className="date-list">
                     {dates.length > 0 ? (
-                        dates.map((date, index) => (
+                        dates.map((time, index) => (
                             <div key={index} className="date-item">
-                                <span>{date}</span>
+                                <span>{time}</span>
                                 <button
-                                    onClick={() => handleDateSelect(date)}
-                                    className={`date-item-button ${formData.date === date ? "selected" : ""}`}
+                                    onClick={() => handleDateSelect(time)}
+                                    className={`date-item-button ${formData.startTime === time ? "selected" : ""}`}
                                 >
-                                    {formData.startTime === date ? "Selected" : "Select"}
+                                    {formData.startTime === time ? "Selected" : "Select"}
                                 </button>
                             </div>
                         ))
                     ) : (
-                        <div>No available dates</div>
+                        <div>No available times</div>
                     )}
                 </div>
             )}

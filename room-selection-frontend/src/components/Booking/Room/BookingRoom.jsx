@@ -26,7 +26,7 @@ function BookingRoom({ formData, handleChange, nextStep, prevStep }) {
 
     return (
         <div className="booking-room-container">
-            <h2>Available Rooms</h2>
+            <h1>Available Rooms</h1>
             {availableRooms.length > 0 ? (
                 <ul className="room-list">
                     {availableRooms.map(room => (

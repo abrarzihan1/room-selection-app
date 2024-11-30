@@ -31,18 +31,18 @@ function Summary({ formData, prevStep }) {
 
     return (
         <div className="summary-container">
-            <h2>Booking Summary</h2>
+            <h1>Booking Summary</h1>
             <div className="summary-details">
                 <p><strong>Booking Name:</strong> {formData.name}</p>
-                <p><strong>Room Type:</strong> {formData.roomType}</p>
-                <p><strong>Capacity:</strong> {formData.capacity}</p>
-                <p><strong>Features:</strong>
-                    {[
-                        formData.hasComputers && 'Computers',
-                        formData.hasProjectors && 'Projectors',
-                        formData.hasWhiteBoard && 'Whiteboard',
-                    ].filter(Boolean).join(', ') || 'None'}
-                </p>
+                {/*<p><strong>Room Type:</strong> {formData.roomType}</p>*/}
+                {/*<p><strong>Capacity:</strong> {formData.capacity}</p>*/}
+                {/*<p><strong>Features:</strong>*/}
+                {/*    {[*/}
+                {/*        formData.hasComputers && 'Computers',*/}
+                {/*        formData.hasProjectors && 'Projectors',*/}
+                {/*        formData.hasWhiteBoard && 'Whiteboard',*/}
+                {/*    ].filter(Boolean).join(', ') || 'None'}*/}
+                {/*</p>*/}
                 <p><strong>Room ID:</strong> {formData.roomId}</p>
                 <p><strong>Date:</strong> {formData.date}</p>
                 <p><strong>Start Time:</strong> {formData.startTime}</p>

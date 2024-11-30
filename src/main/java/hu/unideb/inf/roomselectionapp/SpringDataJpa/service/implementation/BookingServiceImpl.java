@@ -18,6 +18,14 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public String save(Booking booking) {
+        boolean isConflict = bookingRepository.existsByRoomIdAndDateAndStartTime(
+                booking.getRoomId(), booking.getDate(), booking.getStartTime()
+        );
+
+        if (isConflict) {
+            return "A booking already exists for the selected room, date, and time.";
+        }
+
         bookingRepository.save(booking);
         return "success";
     }

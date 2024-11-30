@@ -28,7 +28,7 @@ function Profile() {
                     setLoading(false);
                 });
         } else {
-            setError('No username found in local storage.');
+            setError('No username found.');
             setLoading(false);
         }
     }, [url, username]);

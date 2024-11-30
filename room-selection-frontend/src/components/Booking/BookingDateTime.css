@@ -8,3 +8,96 @@
     border-radius: 4px;
     font-size: 16px;
 }
+
+/* Styling for the list of dates container */
+.date-list {
+    margin-top: 20px;
+    width: 100%; /* Make the container take full width */
+    background-color: white; /* White background */
+    padding: 10px;
+    box-sizing: border-box; /* Ensure padding doesn't affect total width */
+    border-radius: 5px; /* Optional: add rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for better visual appearance */
+}
+
+/* Styling for each date item in the list */
+.date-item {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Place content on opposite sides */
+    align-items: center; /* Vertically center the items */
+    width: 100%; /* Make each item take full width */
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0; /* Optional: border between items */
+}
+
+/* Remove border from the last date item */
+.date-item:last-child {
+    border-bottom: none;
+}
+
+/* Styling for the 'Select' buttons */
+.date-item-button {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for the button */
+.date-item-button:hover {
+    background-color: #45a049;
+}
+
+/* Styling for the selected button */
+.date-item-button.selected {
+    background-color: #45a049;
+}
+
+/* Disabled button style */
+.date-item-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Styling for the navigation buttons container */
+.navigation-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Styling for the navigation buttons */
+.navigation-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Disabled navigation button */
+.navigation-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Styling for the date input */
+.date-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Styling for loading message */
+.loading-message {
+    text-align: center;
+    margin-top: 20px;
+}

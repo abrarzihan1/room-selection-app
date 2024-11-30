@@ -1,77 +1,63 @@
-import React, { useEffect, useState } from "react";
-import "./BookingRoom.css";
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import './BookingRoom.css';
+import axios from 'axios';
 
-const BookingRoom = ({ formData, handleChange, nextStep, prevStep }) => {
+function BookingRoom({ formData, handleChange, nextStep, prevStep }) {
     const [availableRooms, setAvailableRooms] = useState([]);
-    const [selectedRoom, setSelectedRoom] = useState(null); // Track the selected room
 
     useEffect(() => {
         const fetchRooms = async () => {
             try {
                 const response = await axios.post(
-                    "http://localhost:8082/api/public/room/search",
+                    'http://localhost:8082/api/public/room/search',
                     formData
                 );
                 setAvailableRooms(response.data);
             } catch (error) {
-                console.error("Error fetching available rooms:", error);
-                alert("Failed to fetch available rooms. Please try again later.");
+                console.error('Error fetching available rooms:', error);
             }
         };
-
         fetchRooms();
     }, [formData]);
 
-    const handleRoomSelect = (room) => {
-        setSelectedRoom(room); // Set the selected room
+    const handleRoomSelect = (roomId) => {
+        handleChange('roomId', roomId);
     };
-
-    if (availableRooms.length === 0) {
-        return (
-            <div className="no-rooms">
-                <p>No rooms available for the selected criteria.</p>
-                <div className="navigation-buttons">
-                    <button className={"navigation-button"} onClick={prevStep}>Back</button>
-                    <button className={"navigation-button"} onClick={nextStep} disabled={!selectedRoom}>
-                        Next
-                    </button>
-                </div>
-            </div>
-        );
-    }
 
     return (
         <div className="booking-room-container">
             <h2>Available Rooms</h2>
-            <ul className="room-list">
-                {availableRooms.map((room) => (
-                    <li
-                        key={room.roomId}
-                        className={`room-item ${selectedRoom?.roomId === room.roomId ? "selected" : ""}`}
-                    >
-                        <div>
-                            <h3>Room ID: {room.roomId}</h3>
-                            <p>Capacity: {room.capacity}</p>
-                        </div>
-                        <button
-                            className="select-room-button"
-                            onClick={() => handleRoomSelect(room)}
+            {availableRooms.length > 0 ? (
+                <ul className="room-list">
+                    {availableRooms.map(room => (
+                        <li
+                            key={room.roomId}
+                            className={`room-item ${formData.roomId === room.roomId ? 'selected' : ''}`}
                         >
-                            {selectedRoom?.roomId === room.roomId ? "Selected" : "Select"}
-                        </button>
-                    </li>
-                ))}
-            </ul>
-
+                            <div>
+                                <h3>Room ID: {room.roomId}</h3>
+                                <p>Capacity: {room.capacity}</p>
+                            </div>
+                            <button
+                                className="select-room-button"
+                                onClick={() => handleRoomSelect(room.roomId)}
+                            >
+                                {formData.roomId === room.roomId ? 'Selected' : 'Select'}
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p>No rooms available for the selected criteria.</p>
+            )}
             <div className="navigation-buttons">
-                <button className={"navigation-button"} onClick={prevStep}>Back</button>
-                <button className={"navigation-button"} onClick={nextStep} disabled={!selectedRoom}>
+                <button className="navigation-button" onClick={prevStep}>Back</button>
+                <button className="navigation-button" onClick={nextStep} disabled={!formData.roomId}>
                     Next
                 </button>
             </div>
         </div>
     );
-};
+}
 
 export default BookingRoom;

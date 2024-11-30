@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './BookingRoomCriteria.css'
+import './BookingRoomCriteria.css';
 
 function BookingRoomCriteria({ formData, handleChange, nextStep, prevStep }) {
     const [error, setError] = useState('');
@@ -13,7 +13,7 @@ function BookingRoomCriteria({ formData, handleChange, nextStep, prevStep }) {
             setError('Capacity must be greater than 0.');
             return;
         }
-        setError(''); // Clear errors if validation passes
+        setError('');
         nextStep();
     };
 
@@ -32,7 +32,6 @@ function BookingRoomCriteria({ formData, handleChange, nextStep, prevStep }) {
                     {['LABROOM', 'CONFERENCE', 'AUDITORIUM', 'CLASSROOM', 'MEETING_ROOM', 'LIBRARY'].map(type => (
                         <button
                             key={type}
-                            type="button"
                             className={formData.roomType === type ? 'room-button selected' : 'room-button'}
                             onClick={() => handleChange('roomType', type)}
                         >
@@ -56,26 +55,21 @@ function BookingRoomCriteria({ formData, handleChange, nextStep, prevStep }) {
             <div className="feature-section">
                 <h3>Additional Features</h3>
                 <div className="feature-buttons">
-                    {[
-                        { name: 'hasComputers', label: 'Computers' },
-                        { name: 'hasProjectors', label: 'Projectors' },
-                        { name: 'hasWhiteBoard', label: 'Whiteboard' },
-                    ].map(feature => (
+                    {['hasComputers', 'hasProjectors', 'hasWhiteBoard'].map(feature => (
                         <button
-                            key={feature.name}
-                            type="button"
-                            className={formData[feature.name] ? 'feature-button selected' : 'feature-button'}
-                            onClick={() => toggleFeature(feature.name)}
+                            key={feature}
+                            className={formData[feature] ? 'feature-button selected' : 'feature-button'}
+                            onClick={() => toggleFeature(feature)}
                         >
-                            {feature.label}
+                            {feature.replace('has', '')}
                         </button>
                     ))}
                 </div>
             </div>
 
             <div className="navigation-buttons">
-                <button className={"navigation-button"} onClick={prevStep}>Back</button>
-                <button className={"navigation-button"} onClick={validateAndProceed}>Next</button>
+                <button className="navigation-button" onClick={prevStep}>Back</button>
+                <button className="navigation-button" onClick={validateAndProceed}>Next</button>
             </div>
         </div>
     );

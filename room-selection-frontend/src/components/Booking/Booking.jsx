@@ -4,18 +4,21 @@ import BookingRoomCriteria from './RoomCriteria/BookingRoomCriteria';
 import BookingDateTime from './BookingDateTime';
 import Summary from './Summary/Summary';
 import Sidebar from '../Sidebar/Sidebar';
+import BookingRoom from './Room/BookingRoom';
 import './Booking.css';
-import BookingRoom from "./Room/BookingRoom";
 
 function Booking() {
     const [formData, setFormData] = useState({
         name: '',
         roomType: '',
         capacity: 0,
-        date: '',
         hasComputers: false,
         hasProjectors: false,
         hasWhiteBoard: false,
+        roomId: '',
+        date: '',
+        teacherId: '',
+        startTime: '',
     });
 
     const [currentStep, setCurrentStep] = useState(1);

@@ -1,7 +1,18 @@
-import React from 'react';
-import './BookingStart.css'
+import React, { useState } from 'react';
+import './BookingStart.css';
 
 function BookingStart({ formData, handleChange, nextStep }) {
+    const [error, setError] = useState('');
+
+    const handleNext = () => {
+        if (!formData.name.trim()) {
+            setError('Booking name is required.');
+            return;
+        }
+        setError('');
+        nextStep();
+    };
+
     return (
         <div>
             <h1>Booking a Room</h1>
@@ -11,9 +22,10 @@ function BookingStart({ formData, handleChange, nextStep }) {
                 placeholder="Enter booking name"
                 value={formData.name}
                 onChange={e => handleChange('name', e.target.value)}
-                className={"booking-start-input"}
+                className="booking-start-input"
             />
-            <button className={"navigation-button"} onClick={nextStep}>Next</button>
+            {error && <p className="error-message">{error}</p>}
+            <button className="navigation-button" onClick={handleNext}>Next</button>
         </div>
     );
 }

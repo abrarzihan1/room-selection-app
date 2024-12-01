@@ -12,6 +12,7 @@
 /* Styling for the list of dates container */
 .date-list {
     margin-top: 20px;
+    margin-bottom: 20px;
     width: 100%; /* Make the container take full width */
     background-color: white; /* White background */
     padding: 10px;
@@ -60,24 +61,6 @@
 .date-item-button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
-}
-
-/* Styling for the navigation buttons container */
-.navigation-buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Styling for the navigation buttons */
-.navigation-button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    background-color: #008CBA;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
 /* Disabled navigation button */

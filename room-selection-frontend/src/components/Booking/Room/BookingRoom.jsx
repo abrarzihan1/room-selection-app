@@ -10,7 +10,12 @@ function BookingRoom({ formData, handleChange, nextStep, prevStep }) {
             try {
                 const response = await axios.post(
                     'http://localhost:8082/api/public/room/search',
-                    formData
+                    formData, {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem("token")}`,
+                        },
+                        withCredentials: true
+                    }
                 );
                 setAvailableRooms(response.data);
             } catch (error) {
@@ -26,7 +31,7 @@ function BookingRoom({ formData, handleChange, nextStep, prevStep }) {
 
     return (
         <div className="booking-room-container">
-            <h2>Available Rooms</h2>
+            <h1>Available Rooms</h1>
             {availableRooms.length > 0 ? (
                 <ul className="room-list">
                     {availableRooms.map(room => (

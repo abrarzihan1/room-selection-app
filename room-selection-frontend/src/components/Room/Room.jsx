@@ -12,7 +12,12 @@ function Room() {
         const fetchRooms = async () => {
             try {
                 const response = await axios.get(
-                    "api/public/room/getAll",
+                    "api/public/room/getAll",{
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem("token")}`,
+                        },
+                        withCredentials: true
+                    }
                 );
                 setRooms(response.data);
                 setLoading(false);  // Data has been fetched, set loading to false

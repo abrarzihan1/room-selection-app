@@ -1,13 +1,36 @@
-## Teacher-Room Booking System
+# TeachSpace - Classroom and Facility Booking System
 
-Go to http://localhost:8081/ to view the website
+TeachSpace is a web-based application designed to streamline the process of reserving classrooms and facilities for academic purposes. By centralizing and automating the booking process, it enhances efficiency and convenience for professors, administrators, and students.
 
-Teacher should be able to seaerch for available room based on time and day.
-They should be able to book a room and cancel a booking.
-The system should display a confirmation  of sucessfull booking or notify if there is a conflict.
-The teacher can log in and create accounts.
+## Features
 
-Prototype login page: https://abrarzihan1.github.io/project-sde/
+- **Easy Room Booking**: Professors and students can easily find and book available classrooms or facilities in real-time.
+- **Upcoming & Past Bookings**: View and manage both upcoming and past bookings.
+- **Responsive Design**: Works seamlessly on desktop and mobile devices for maximum accessibility.
 
-Figma design:
-![image](https://github.com/user-attachments/assets/60b4c0f3-980f-4ea8-8f94-676fccb605b4)
+## Tech Stack
+
+- **Frontend**: React.js, CSS, HTML
+- **Backend**: Java, Spring Boot
+- **Database**: MySQL
+- **API**: RESTful API using Spring Boot for communication with the frontend
+- **Authentication**: JWT (JSON Web Tokens) for secure login and session management
+
+### Configuration
+
+- Make sure the backend is running on a port different from the frontend (`http://localhost:8082` is the default for Spring Boot).
+- Update the API URLs in the frontend code to match your backend.
+
+## Usage
+
+Once the application is running, users can:
+
+- **Login**: Log in as a teacher using the credentials set in the system.
+- **Book Rooms**: Reserve available rooms for lectures or other academic purposes.
+- **Manage Bookings**: View and delete upcoming or past bookings.
+
+### Authentication
+
+The application uses JWT (JSON Web Tokens) for authentication. After logging in, a token is issued, which must be included in the headers of subsequent API requests.
+
+## Screenshots

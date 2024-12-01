@@ -33,3 +33,6 @@ Content-Type: application/json
   "hasProjectors": false,
   "hasWhiteBoard": false
 }
+
+###
+DELETE localhost:8082/api/public/booking/booking/10

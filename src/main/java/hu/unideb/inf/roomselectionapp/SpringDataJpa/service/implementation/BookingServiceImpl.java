@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookingServiceImpl implements BookingService {
@@ -55,5 +56,15 @@ public class BookingServiceImpl implements BookingService {
         return timeSlots.stream()
                 .filter(slot -> !bookedTimes.contains(slot))
                 .toList();
+    }
+
+    @Override
+    public boolean deleteBookingByBookingId(Long bookingId) {
+        Optional<Booking> booking = bookingRepository.findById(bookingId);
+        if (booking.isPresent()) {
+            bookingRepository.delete(booking.get());
+            return true;
+        }
+        return false;
     }
 }

@@ -10,7 +10,12 @@ function BookingRoom({ formData, handleChange, nextStep, prevStep }) {
             try {
                 const response = await axios.post(
                     'http://localhost:8082/api/public/room/search',
-                    formData
+                    formData, {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem("token")}`,
+                        },
+                        withCredentials: true
+                    }
                 );
                 setAvailableRooms(response.data);
             } catch (error) {

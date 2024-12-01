@@ -32,7 +32,7 @@
 }
 
 .sidebar-link:hover {
-  background-color: rgb(32, 86, 115);  /* Optionally, change the background on hover */
+  background-color: rgb(32, 86, 115);
 }
 
 @media (max-width: 578px) {

@@ -12,7 +12,7 @@ const Dashboard = () => {
         const fetchBookings = async () => {
             try {
                 const response = await axios.get(
-                    `api/public/booking/teacher/${localStorage.getItem('username')}`,
+                    `api/private/booking/teacher/${localStorage.getItem('username')}`,
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -61,7 +61,7 @@ const Dashboard = () => {
 
     const handleDelete = async (bookingId) => {
         try {
-            const response = await axios.delete(`/api/public/booking/booking/${bookingId}`, {
+            const response = await axios.delete(`/api/private/booking/booking/${bookingId}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
@@ -69,11 +69,9 @@ const Dashboard = () => {
             });
 
             if (response.status === 200) {
-                alert('Booking deleted successfully');
-                // Remove the deleted booking from the filteredBookings and bookings state
                 const updatedBookings = bookings.filter(booking => booking.bookingId !== bookingId);
                 setBookings(updatedBookings);
-                setFilteredBookings(filterAndSortBookings(updatedBookings, activeFilter)); // Re-filter after deletion
+                setFilteredBookings(filterAndSortBookings(updatedBookings, activeFilter));
             } else {
                 alert('Error deleting booking');
             }

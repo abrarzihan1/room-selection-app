@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './BookingRoomCriteria.css';
 
-function BookingRoomCriteria({ formData, handleChange, nextStep, prevStep }) {
+function BookingRoomCriteria({formData, handleChange, nextStep, prevStep}) {
     const [error, setError] = useState('');
 
     const validateAndProceed = () => {
@@ -24,6 +24,11 @@ function BookingRoomCriteria({ formData, handleChange, nextStep, prevStep }) {
     return (
         <div className="criteria-container">
             <h1>Select Room Criteria</h1>
+            <p className="booking-text">
+                Now that you've started the booking process, let's choose the specifics for the room you'll be
+                reserving. Fill out the details below to help us find the perfect room for your needs.
+            </p>
+
             {error && <p className="error-message">{error}</p>}
 
             <div className="room-type-section">

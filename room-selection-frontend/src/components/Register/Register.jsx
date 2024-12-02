@@ -17,6 +17,11 @@ const Register = () => {
         setError('');
         setSuccess(false);
 
+        if (!username || !password || !name || !email || !department) {
+            setError('All fields are required.');
+            return;
+        }
+
         try {
             const response = await fetch('api/auth/signup', {
                 method: 'POST',

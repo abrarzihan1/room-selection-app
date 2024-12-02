@@ -6,7 +6,7 @@ function BookingStart({ formData, handleChange, nextStep }) {
 
     const handleNext = () => {
         if (!formData.name.trim()) {
-            setError('Booking name is required.');
+            setError('Please provide a name for your booking.');
             return;
         }
         setError('');
@@ -14,9 +14,10 @@ function BookingStart({ formData, handleChange, nextStep }) {
     };
 
     return (
-        <div>
-            <h1>Booking a Room</h1>
-            <p>Start by giving a name for your booking</p>
+        <div className="booking-start-container">
+            <h1>Book a Room</h1>
+            <p className="booking-text">Welcome! Let’s get your room booking started. To begin, please provide a name for your booking. This helps us identify your reservation, whether it's for a meeting, an event, or a class.</p>
+            <p className="booking-text"><strong>What’s the purpose of your booking?</strong> If you’re a teacher, feel free to use the name of the class you're teaching (e.g., "Math 101", "History Lecture"). If it’s a meeting or event, you can name it accordingly (e.g., "Team Meeting", "Project Planning", or "Workshop").</p>
             <input
                 type="text"
                 placeholder="Enter booking name"

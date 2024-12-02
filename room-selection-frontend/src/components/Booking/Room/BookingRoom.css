@@ -15,11 +15,6 @@
     cursor: pointer;
 }
 
-.room-item.selected {
-    background-color: #d4d4f7;
-    border-color: #3453a8;
-}
-
 .select-room-button {
     padding: 5px 10px;
     font-size: 14px;

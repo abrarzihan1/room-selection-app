@@ -13,7 +13,6 @@ function BookingDateTime({ formData, handleChange, nextStep, prevStep }) {
     };
 
     useEffect(() => {
-        // Set the default date to tomorrow if not already set
         if (!formData.date) {
             handleChange('date', getTomorrowDate());
         }
@@ -21,13 +20,18 @@ function BookingDateTime({ formData, handleChange, nextStep, prevStep }) {
         const fetchTimes = async () => {
             try {
                 const response = await axios.post(
-                    "/api/public/booking/available-times",
+                    "/api/private/booking/available-times",
                     {
                         roomId: formData.roomId,
                         date: formData.date || getTomorrowDate(),
+                    }, {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem("token")}`,
+                        },
+                        withCredentials: true
                     }
                 );
-                setDates(response.data || []); // Ensure fallback to an empty array
+                setDates(response.data || []);
             } catch (error) {
                 console.error("Error fetching available dates:", error);
             } finally {
@@ -39,21 +43,13 @@ function BookingDateTime({ formData, handleChange, nextStep, prevStep }) {
     }, [formData, handleChange]);
 
     const handleDateSelect = (date) => {
-        // Update both local selectedDate and formData.date
         handleChange('startTime', date);
-    };
-
-    const handleNext = () => {
-        if (formData.startTime) { // Check if a startTime is selected
-            nextStep();
-        } else {
-            alert('Please select a time before proceeding.');
-        }
     };
 
     return (
         <div>
-            <h2>Choose Date and Time</h2>
+            <h1>Choose Date and Time</h1>
+            <p className={"booking-text"}>Select a date and time for your booking based on the available options for the chosen room.</p>
             <input
                 type="date"
                 value={formData.date || getTomorrowDate()}
@@ -84,7 +80,11 @@ function BookingDateTime({ formData, handleChange, nextStep, prevStep }) {
             )}
             <div className="navigation-buttons">
                 <button className="navigation-button" onClick={prevStep}>Back</button>
-                <button className="navigation-button" onClick={handleNext}>
+                <button
+                    className="navigation-button"
+                    onClick={nextStep}
+                    disabled={!formData.startTime}  // Disable the button if no time is selected
+                >
                     Next
                 </button>
             </div>

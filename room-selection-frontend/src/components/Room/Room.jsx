@@ -12,7 +12,7 @@ function Room() {
         const fetchRooms = async () => {
             try {
                 const response = await axios.get(
-                    "api/public/room/getAll",{
+                    "api/private/room/getAll",{
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem("token")}`,
                         },

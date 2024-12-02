@@ -49,8 +49,20 @@ h2 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .navigation-button:hover {
     background-color: #7fa4ad;
+}
+
+.booking-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.booking-text strong {
+    font-weight: bold;
 }

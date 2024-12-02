@@ -37,10 +37,19 @@ const App = () => {
                         path="/dashboard"
                         element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />}
                     />
-                    <Route path="/booking" element={<Booking />} />
-                    <Route path="/profile" element={<Profile />} />
-                    <Route path="/room" element={<Room />} />
-                    <Route path="*" element={<Navigate to="/login" />} />
+                    <Route
+                        path="/booking"
+                        element={isAuthenticated ? <Booking />: <Navigate to="login" />}
+                    />
+                    <Route
+                        path="/profile"
+                        element={isAuthenticated ? <Profile /> : <Navigate to="/login" />}
+                    />
+                    <Route
+                        path="/room"
+                        element={isAuthenticated ? <Room /> : <Navigate to="/login" />}
+                    />
+                    <Route path="*" element={<Navigate to="" />} />
                 </Routes>
             </Layout>
         </Router>

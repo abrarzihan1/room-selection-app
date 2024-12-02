@@ -9,7 +9,7 @@ function BookingRoom({ formData, handleChange, nextStep, prevStep }) {
         const fetchRooms = async () => {
             try {
                 const response = await axios.post(
-                    'http://localhost:8082/api/public/room/search',
+                    'http://localhost:8082/api/private/room/search',
                     formData, {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -32,6 +32,9 @@ function BookingRoom({ formData, handleChange, nextStep, prevStep }) {
     return (
         <div className="booking-room-container">
             <h1>Available Rooms</h1>
+            <p className="booking-text">
+                Select a room from the available options based on your chosen criteria such as capacity and features.
+            </p>
             {availableRooms.length > 0 ? (
                 <ul className="room-list">
                     {availableRooms.map(room => (

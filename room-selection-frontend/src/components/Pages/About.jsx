@@ -21,7 +21,7 @@ const About = () => {
                 <div className="contact-info">
                     <p><strong>Email:</strong> support@teachspace.hu</p>
                     <p><strong>Phone:</strong> +36 (1) 234-5678</p>
-                    <p><strong>Address:</strong> 1234 Oktatás utca, 567. épület, Budapest, Hungary</p>
+                    <p><strong>Address:</strong> Debrecen, Kassai út 26, 4028</p>
                 </div>
             </div>
         </div>

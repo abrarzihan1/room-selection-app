@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
@@ -38,6 +39,12 @@ public class TeacherRepositoryTest {
     void testByTeacherName(){
         List<Teacher> teacherList = teacherRepository.findByName("Adamko");
         assertThat(teacherList.get(0).getName()).isEqualTo(teacher.getName());
+    }
+
+    @Test
+    void testByTeacherTeacherId(){
+        Optional<Teacher> teacherList = teacherRepository.findById("CS-001");
+        assertThat(teacherList.get().getTeacherId()).isEqualTo(teacher.getTeacherId());
     }
 
 }

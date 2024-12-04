@@ -7,6 +7,7 @@ import hu.unideb.inf.roomselectionapp.SpringDataJpa.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
@@ -66,5 +67,16 @@ public class BookingServiceImpl implements BookingService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean isBookingConflict(String roomId, LocalDate date, LocalTime startTime, long bookingId) {
+        return bookingRepository.existsByRoomIdAndDateAndStartTimeAndBookingIdNot(
+                roomId, date, startTime, bookingId);
+    }
+
+    @Override
+    public Optional<Booking> findById(long bookingId) {
+        return bookingRepository.findById(bookingId);
     }
 }

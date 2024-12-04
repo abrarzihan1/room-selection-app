@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/private/booking")
@@ -33,16 +34,20 @@ public class BookingController {
         return bookingService.findByTeacherId(teacherId);
     }
 
+    @GetMapping("/booking/{bookingId}")
+    public Optional<Booking> getBookingById(@PathVariable long bookingId) {
+        return bookingService.findById(bookingId);
+    }
+
     @PostMapping("/available-times")
     public List<LocalTime> getAvailableTimes(@RequestBody TimeAvailabilityRequest request) {
         return bookingService.findAvailableTimes(request);
     }
 
     @DeleteMapping("/booking/{bookingId}")
-    public ResponseEntity<String> deleteBooking(@PathVariable String bookingId) {
-        long id = Long.parseLong(bookingId);
+    public ResponseEntity<String> deleteBooking(@PathVariable long bookingId) {
         try {
-            boolean isDeleted = bookingService.deleteBookingByBookingId(id);
+            boolean isDeleted = bookingService.deleteBookingByBookingId(bookingId);
             if (isDeleted) {
                 return ResponseEntity.ok("Booking deleted successfully");
             } else {
@@ -50,6 +55,39 @@ public class BookingController {
             }
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting booking");
+        }
+    }
+
+    @PutMapping("/booking/{bookingId}")
+    public ResponseEntity<String> updateBooking(@PathVariable long bookingId, @RequestBody Booking booking) {
+        try {
+            Optional<Booking> existingBookingOptional = bookingService.findById(bookingId);
+
+            if (!existingBookingOptional.isPresent()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Booking not found");
+            }
+
+            Booking existingBooking = existingBookingOptional.get();
+
+            boolean isConflict = bookingService.isBookingConflict(
+                    existingBooking.getRoomId(),
+                    booking.getDate(),
+                    booking.getStartTime(),
+                    bookingId
+            );
+
+            if (isConflict) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("A booking already exists for the selected room, date, and time.");
+            }
+
+            existingBooking.setDate(booking.getDate());
+            existingBooking.setStartTime(booking.getStartTime());
+            bookingService.save(existingBooking);
+            return ResponseEntity.ok("Booking updated successfully");
+
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating booking");
         }
     }
 }

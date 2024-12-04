@@ -1,0 +1,49 @@
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input[type="date"] {
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.time-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.time-button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+.time-button.selected {
+    background-color: #007bff;
+    color: white;
+}
+
+.update-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.update-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

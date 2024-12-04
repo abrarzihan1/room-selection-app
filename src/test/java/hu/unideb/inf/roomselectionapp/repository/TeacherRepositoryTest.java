@@ -47,4 +47,10 @@ public class TeacherRepositoryTest {
         assertThat(teacherList.get().getTeacherId()).isEqualTo(teacher.getTeacherId());
     }
 
+    @Test
+    void testByTeacherByEmail(){
+        List<Teacher> teacherList = teacherRepository.findByEmail("Adamko123@gmail.com");
+        assertThat(teacherList.get(0).getEmail()).isEqualTo(teacher.getEmail());
+    }
+
 }

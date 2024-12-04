@@ -10,5 +10,6 @@ public interface TeacherRepository extends JpaRepository<Teacher,String >{
 
     List<Teacher> findByName(String name);
     List<Teacher> findByEmail(String email);
+    List<Teacher> findByDepartment(String department);
 
 }

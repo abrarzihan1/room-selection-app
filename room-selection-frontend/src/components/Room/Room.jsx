@@ -5,8 +5,8 @@ import axios from "axios";
 
 function Room() {
     const [rooms, setRooms] = React.useState([]);
-    const [loading, setLoading] = React.useState(true);  // New loading state
-    const [searchQuery, setSearchQuery] = React.useState("");  // State for search query
+    const [loading, setLoading] = React.useState(true);
+    const [searchQuery, setSearchQuery] = React.useState("");
 
     useEffect(() => {
         const fetchRooms = async () => {

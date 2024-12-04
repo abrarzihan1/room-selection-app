@@ -89,11 +89,11 @@ const EditBooking = () => {
             <div className="dashboard-content">
                 <h1>Edit Booking</h1>
                 <div className="edit-form">
-                    <label>Date:</label>
                     <input
                         type="date"
                         name="date"
                         value={booking.date}
+                        className={"edit-booking-date-input"}
                         onChange={(e) => handleInputChange('date', e.target.value)}
                     />
                     {loading ? (
@@ -109,7 +109,7 @@ const EditBooking = () => {
                                                 booking.startTime === time ? 'selected' : ''
                                             }`}
                                         >
-                                            {time === booking.startTime ? 'Selected' : time}
+                                            {booking.startTime === time ? time : time} {/* Always show the time */}
                                         </button>
                                     </div>
                                 ))

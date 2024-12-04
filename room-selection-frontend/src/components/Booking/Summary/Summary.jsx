@@ -20,7 +20,7 @@ function Summary({ formData, prevStep }) {
         setErrorMessage('');
 
         try {
-            const response = await axios.post('http://localhost:8082/api/private/booking', {
+            const response = await axios.post('api/private/booking', {
                 roomId: formData.roomId,
                 teacherId: localStorage.getItem('username'),
                 date: formData.date,

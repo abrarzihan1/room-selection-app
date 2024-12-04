@@ -2,16 +2,20 @@
     display: flex;
     flex-direction: column;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 0;
 }
 
 label {
     margin-top: 10px;
 }
 
-input[type="date"] {
-    padding: 5px;
-    margin-bottom: 15px;
+.edit-booking-date-input {
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 .time-options {
@@ -29,18 +33,28 @@ input[type="date"] {
     background-color: #f0f0f0;
 }
 
+.time-button:hover {
+    color: whitesmoke;
+}
+
 .time-button.selected {
     background-color: #007bff;
     color: white;
 }
 
 .update-button {
-    background-color: #007bff;
+    background-color: #0e5e72;
     color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
+    padding: 14px  25px;
+    font-size: 20px;
+    border-radius: 30px;
     cursor: pointer;
+    border: 0;
+    outline: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 .update-button:disabled {

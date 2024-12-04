@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
 import Sidebar from "../Sidebar/Sidebar";
@@ -75,6 +74,7 @@ const Dashboard = () => {
                 const updatedBookings = bookings.filter(booking => booking.bookingId !== bookingId);
                 setBookings(updatedBookings);
                 setFilteredBookings(filterAndSortBookings(updatedBookings, activeFilter));
+                alert("Booking deleted successfully");
             } else {
                 alert('Error deleting booking');
             }

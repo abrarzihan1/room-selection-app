@@ -9,8 +9,13 @@ function BookingRoom({ formData, handleChange, nextStep, prevStep }) {
         const fetchRooms = async () => {
             try {
                 const response = await axios.post(
-                    'http://localhost:8082/api/private/room/search',
-                    formData, {
+                    'api/private/room/search', {
+                        "roomType": formData.roomType,
+                        "capacity": formData.capacity,
+                        "hasComputers": formData.hasComputers,
+                        "hasProjectors": formData.hasProjectors,
+                        "hasWhiteBoard": formData.hasWhiteBoard
+                    }, {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem("token")}`,
                         },

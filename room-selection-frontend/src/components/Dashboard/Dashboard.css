@@ -1,3 +1,4 @@
+
 .title-row {
     display: flex;
     width: 100%;
@@ -48,4 +49,18 @@
 
 .delete-button:hover {
     background-color: darkred;
+}
+
+.update-button-dashboard {
+    background-color: #3453a8;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.update-button-dashboard:hover {
+    background-color: #0c4250;
 }

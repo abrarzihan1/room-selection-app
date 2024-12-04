@@ -1,12 +1,15 @@
+
 import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
 import Sidebar from "../Sidebar/Sidebar";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 const Dashboard = () => {
     const [bookings, setBookings] = useState([]);
     const [filteredBookings, setFilteredBookings] = useState([]);
     const [activeFilter, setActiveFilter] = useState('upcoming');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchBookings = async () => {
@@ -118,6 +121,13 @@ const Dashboard = () => {
                             <div className="item-name">{booking.startTime}</div>
                             {activeFilter === 'upcoming' && (
                                 <div className="item-name">
+
+                                    <button
+                                        onClick={() => navigate(`/edit-booking/${booking.bookingId}`)}
+                                        className="update-button-dashboard"
+                                    >
+                                        Update
+                                    </button>
                                     <button
                                         onClick={() => handleDelete(booking.bookingId)}
                                         className="delete-button"

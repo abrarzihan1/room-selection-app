@@ -6,7 +6,6 @@ import Summary from './Summary/Summary';
 import Sidebar from '../Sidebar/Sidebar';
 import BookingRoom from './Room/BookingRoom';
 import './Booking.css';
-import BookingResult from "./Result/BookingResult";
 
 function Booking() {
     const [formData, setFormData] = useState({
@@ -46,8 +45,6 @@ function Booking() {
                 return <BookingDateTime formData={formData} handleChange={handleChange} nextStep={nextStep} prevStep={prevStep} />;
             case 5:
                 return <Summary formData={formData} prevStep={prevStep} />;
-            case 6:
-                return <BookingResult />
             default:
                 return <div>Error: Step not found</div>;
         }

@@ -2,14 +2,13 @@ POST http://localhost:8082/api/auth/login
 Content-Type: application/json
 
 {
-  "username": "edward",
-  "password": 123123
+  "username": "user",
+  "password": "12345"
 }
 
 ###
 GET http://localhost:8082/api/private/teacher/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyLGVkd2FyZCx1c2VyIiwiaWF0IjoxNzMwMTEzMTk4LCJleHAiOjE3MzAxMTMzNzh9.iD7rBlAwpP6nq_uPI4sDX5BluJW-Lx3e_vflHsRzktM
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxLHVzZXIsdXNlciIsImlhdCI6MTczMzI2MTY2OSwiZXhwIjoxNzMzMjc5NjY5fQ.r8MID899ze-ViC1P6cmzUXoMpvpVqyCE6gLp4z037f8
 ###
 POST localhost:8081/api/auth/signup
 Content-Type: application/json
@@ -36,3 +35,13 @@ Content-Type: application/json
 
 ###
 DELETE localhost:8082/api/public/booking/booking/10
+
+###
+PUT localhost:8082/api/private/booking/booking/12
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxLHVzZXIsdXNlciIsImlhdCI6MTczMzI2MTgwMiwiZXhwIjoxNzMzMjc5ODAyfQ.fEsMD0Mg0HNRGH5GTESkBShT4AEbDeB-DZ9uaNPwNa0
+Content-Type: application/json
+
+{
+  "date": "2024-12-10",
+  "startTime": "10:00"
+}

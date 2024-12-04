@@ -25,6 +25,7 @@ public class TeacherRepositoryTest {
     void setup(){
         teacher =new Teacher("CS-001","Adamko",
                 "Adamko123@gmail.com","Computer Science");
+
         teacherRepository.save(teacher);
     }
 
@@ -52,5 +53,12 @@ public class TeacherRepositoryTest {
         List<Teacher> teacherList = teacherRepository.findByEmail("Adamko123@gmail.com");
         assertThat(teacherList.get(0).getEmail()).isEqualTo(teacher.getEmail());
     }
+
+    @Test
+    void testFindByDepartment(){
+        List<Teacher> teacherList = teacherRepository.findByDepartment("Computer Science");
+        assertThat(teacherList.get(0).getDepartment()).isEqualTo(teacher.getDepartment());
+    }
+
 
 }

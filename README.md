@@ -62,7 +62,7 @@ Tools like JUnit, Mockito, and AssertJ are used to test the functionality:
 - **JUnit**: Provides the framework for writing and running the tests.
 - **Mockito**: Used for mocking dependencies in unit tests, allowing testing of components in isolation.
 - **AssertJ**: Improves test readability with fluent assertions, making the tests more descriptive and easier to maintain.
-- 
+  
 This layered approach ensures that all aspects of the application are thoroughly tested and that changes to one layer don’t introduce errors in other layers.
 
 

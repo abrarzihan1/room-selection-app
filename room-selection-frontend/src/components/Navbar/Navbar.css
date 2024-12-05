@@ -79,6 +79,10 @@ nav {
     cursor: pointer;
 }
 
+.btn:hover {
+    background-color: #a6b9c4;
+}
+
 @media (max-width: 768px) {
     .nav-link {
         display: none;

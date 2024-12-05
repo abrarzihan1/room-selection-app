@@ -18,7 +18,7 @@ import java.util.Optional;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 @DataJpaTest
-public class BookingRepositoryTest {
+public class  BookingRepositoryTest {
     @Autowired
     private BookingRepository bookingRepository;
     private Booking booking;
@@ -100,6 +100,16 @@ public class BookingRepositoryTest {
         assertThat(exists).isTrue();
 
 
+    }
+
+    @Test
+    void testFindByDate(){
+        List<Booking> bookingByDate = bookingRepository.findByDate(LocalDate.of(2024, 12, 5));
+        assertThat(bookingByDate).hasSize(3);
+        assertThat(bookingByDate).extracting(Booking::getStartTime)
+                .containsExactlyInAnyOrder(LocalTime.of(10,0),
+                        LocalTime.of(14,0),
+                        LocalTime.of(12,0));
     }
 
 

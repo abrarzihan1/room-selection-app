@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import './Summary.css';
 import axios from 'axios';
-import {useNavigate} from "react-router-dom";
 
 function Summary({ formData, prevStep }) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [bookingConfirmed, setBookingConfirmed] = useState(false);
-    const navigate = useNavigate();
 
     const handleGoBack = () => {
         window.location.reload();
@@ -20,7 +18,7 @@ function Summary({ formData, prevStep }) {
         setErrorMessage('');
 
         try {
-            const response = await axios.post('api/private/booking', {
+            await axios.post('api/private/booking', {
                 roomId: formData.roomId,
                 teacherId: localStorage.getItem('username'),
                 date: formData.date,

@@ -15,6 +15,9 @@ public class RoomImpl implements RoomService {
     @Autowired
     private RoomRepository roomRepository;
 
+    public RoomImpl(RoomRepository roomRepository) {
+    }
+
 
     @Override
     public String createRoom(Room room) {

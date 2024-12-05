@@ -18,6 +18,10 @@ public class BookingServiceImpl implements BookingService {
     @Autowired
     private BookingRepository bookingRepository;
 
+    public BookingServiceImpl(BookingRepository bookingRepository) {
+        this.bookingRepository = bookingRepository;
+    }
+
     @Override
     public String save(Booking booking) {
         boolean isConflict = bookingRepository.existsByRoomIdAndDateAndStartTime(

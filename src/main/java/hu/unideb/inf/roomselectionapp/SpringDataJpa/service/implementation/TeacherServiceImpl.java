@@ -44,6 +44,7 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public List<Teacher> getAllTeachers() {
+
         return teacherRepository.findAll();
     }
 }

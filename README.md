@@ -40,10 +40,10 @@ The application uses MySQL as its database, integrated seamlessly with Spring Bo
 
 The architecture follows a layered pattern, structured into Controller, Service, Repository, and Model layers:
 
-Controller: Handles HTTP requests and returns appropriate responses.
-Service: Contains business logic, orchestrating the flow of data between the controller and repository layers.
-Repository: Interfaces with the database using JPA, managing data persistence and queries.
-Model: Defines the data structure and entity classes mapped to database tables.
+-**Controller**: Handles HTTP requests and returns appropriate responses.
+-**Service**: Contains business logic, orchestrating the flow of data between the controller and repository layers.
+-**Repository**: Interfaces with the database using JPA, managing data persistence and queries.
+-**Model**: Defines the data structure and entity classes mapped to database tables.
 
 In the future, the system is planned to transition to a cloud-based database for improved scalability, reliability, and performance, enabling more efficient data management and access in larger and distributed environments.
 

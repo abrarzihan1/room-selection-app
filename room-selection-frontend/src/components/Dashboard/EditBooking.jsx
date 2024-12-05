@@ -12,6 +12,7 @@ const EditBooking = () => {
         date: '',
         startTime: '',
     });
+
     const [availableTimes, setAvailableTimes] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -25,7 +26,6 @@ const EditBooking = () => {
                     withCredentials: true
                 });
                 setBooking(response.data);
-                fetchAvailableTimes(response.data.date);
             } catch (error) {
                 console.error('Error fetching booking details:', error);
             }

@@ -70,15 +70,6 @@ nav {
     background-color: #f5f5f5;
 }
 
-.hamburger {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-}
-
 .btn:hover {
     background-color: #a6b9c4;
 }
@@ -86,10 +77,6 @@ nav {
 @media (max-width: 768px) {
     .nav-link {
         display: none;
-    }
-
-    .hamburger {
-        display: block;
     }
 }
 

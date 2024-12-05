@@ -47,4 +47,24 @@ The architecture follows a layered pattern, structured into Controller, Service,
 
 In the future, the system is planned to transition to a cloud-based database for improved scalability, reliability, and performance, enabling more efficient data management and access in larger and distributed environments.
 
+### Testing
+
+For testing, the application uses an H2 database, which is an in-memory database that provides an efficient and lightweight solution for small-scale testing environments. H2 is ideal for unit and integration tests, as it ensures that tests are executed in a clean, isolated environment without needing a full-scale database setup.
+
+The testing strategy consists of unit testing, integration testing, and layered testing:
+
+- **Unit Testing**: Focuses on testing individual components (e.g., services, repositories, controllers) in isolation. JUnit is used for writing these tests.
+- **Integration Testing**: Ensures that different parts of the system work together as expected. This includes testing the interaction between the controller, service, and repository layers using H2 as the database.
+- **Layered Testing**: Each layer of the application (Controller, Service, Repository) is tested separately and in combination, ensuring that data flows correctly through the system and that the business logic behaves as intended.
+  
+Tools like JUnit, Mockito, and AssertJ are used to test the functionality:
+
+- **JUnit**: Provides the framework for writing and running the tests.
+- **Mockito**: Used for mocking dependencies in unit tests, allowing testing of components in isolation.
+- **AssertJ**: Improves test readability with fluent assertions, making the tests more descriptive and easier to maintain.
+- 
+This layered approach ensures that all aspects of the application are thoroughly tested and that changes to one layer don’t introduce errors in other layers.
+
+
+
 ## Screenshots

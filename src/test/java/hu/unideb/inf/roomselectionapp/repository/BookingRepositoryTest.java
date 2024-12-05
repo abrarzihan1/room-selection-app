@@ -55,7 +55,7 @@ public class BookingRepositoryTest {
     }
 
     @Test
-    void findByTeacherId(){
+    void testFindByTeacherId(){
         List<Booking> bookingByTeacherId = bookingRepository.findByTeacherId("T001");
         assertThat(bookingByTeacherId).hasSize(2);
 
@@ -73,7 +73,7 @@ public class BookingRepositoryTest {
     }
 
     @Test
-    void findByRoomIdAndDate(){
+    void testFindByRoomIdAndDate(){
         List<Booking> bookingByRoomIdAndDate = bookingRepository.findByRoomIdAndDate("R001", LocalDate.of(2024, 12, 5));
         assertThat(bookingByRoomIdAndDate).hasSize(3);
 
@@ -90,7 +90,7 @@ public class BookingRepositoryTest {
     }
 
     @Test
-    void findByExistsByRoomIdAndDateAndStartTime(){
+    void testFindByExistsByRoomIdAndDateAndStartTime(){
         String roomId = "R001";
         LocalDate date = LocalDate.of(2024, 12, 5);
         LocalTime startTime = LocalTime.of(10, 0);
@@ -100,6 +100,16 @@ public class BookingRepositoryTest {
         assertThat(exists).isTrue();
 
 
+    }
+
+    @Test
+    void testFindByDate(){
+        List<Booking> bookingByDate = bookingRepository.findByDate(LocalDate.of(2024, 12, 5));
+        assertThat(bookingByDate).hasSize(3);
+        assertThat(bookingByDate).extracting(Booking::getStartTime)
+                .containsExactlyInAnyOrder(LocalTime.of(10,0),
+                        LocalTime.of(14,0),
+                        LocalTime.of(12,0));
     }
 
 

@@ -12,7 +12,7 @@ TeachSpace is a web-based application designed to streamline the process of rese
 
 - **Frontend**: React.js, CSS, HTML
 - **Backend**: Java, Spring Boot
-- **Database**: MySQL
+- **Database**: MySQL,H2Database
 - **API**: RESTful API using Spring Boot for communication with the frontend
 - **Authentication**: JWT (JSON Web Tokens) for secure login and session management
 - **Testing**: JUnit, AssertJ, and Mockito are used for unit testing, improving assertions, and mocking dependencies to ensure backend functionality and reliability.

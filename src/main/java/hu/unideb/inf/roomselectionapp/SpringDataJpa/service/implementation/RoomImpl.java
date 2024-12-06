@@ -15,6 +15,10 @@ public class RoomImpl implements RoomService {
     @Autowired
     private RoomRepository roomRepository;
 
+    public RoomImpl(RoomRepository roomRepository) {
+        this.roomRepository = roomRepository;
+    }
+
 
     @Override
     public String createRoom(Room room) {
@@ -36,7 +40,7 @@ public class RoomImpl implements RoomService {
 
     @Override
     public Room getRoom(String id) {
-       return roomRepository.findById(id).get();
+        return roomRepository.findById(id).get();
     }
 
     @Override

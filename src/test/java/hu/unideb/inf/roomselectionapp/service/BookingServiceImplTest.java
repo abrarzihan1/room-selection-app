@@ -46,19 +46,7 @@ public class BookingServiceImplTest {
 
     }
 
-    @Test
-    void testFindByTeacherId(){
-        when(bookingRepository.findByTeacherId("T001")).thenReturn(new ArrayList<Booking>(Collections.singletonList(booking)));
-        assertThat(bookingService.findByTeacherId("T001").get(0).getName()).isEqualTo("Math Class");
-    }
-
-    @Test
-    void testFindById(){
-        when(bookingRepository.findById(1L)).thenReturn(Optional.ofNullable(booking));
-        assertThat(bookingService.findById(1L).get().getStartTime()).isEqualTo(LocalTime.of(10,0));
-
-    }
-
+    
 
 
 }

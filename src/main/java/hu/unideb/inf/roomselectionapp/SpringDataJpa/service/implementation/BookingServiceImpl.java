@@ -38,6 +38,7 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public List<Booking> findByTeacherId(String teacherId) {
+
         return bookingRepository.findByTeacherId(teacherId);
     }
 
@@ -81,6 +82,7 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public Optional<Booking> findById(long bookingId) {
+
         return bookingRepository.findById(bookingId);
     }
 }

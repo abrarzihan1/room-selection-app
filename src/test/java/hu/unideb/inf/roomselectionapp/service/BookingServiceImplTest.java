@@ -5,6 +5,7 @@ import hu.unideb.inf.roomselectionapp.SpringDataJpa.repository.BookingRepository
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.service.BookingService;
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.service.implementation.BookingServiceImpl;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -13,6 +14,12 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Optional;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.Mockito.when;
 
 @DataJpaTest
 public class BookingServiceImplTest {
@@ -38,5 +45,21 @@ public class BookingServiceImplTest {
     void testSaveBooking() {
 
     }
+
+    @Test
+    void testFindByTeacherId(){
+        when(bookingRepository.findByTeacherId("T001")).thenReturn(new ArrayList<Booking>(Collections.singletonList(booking)));
+        assertThat(bookingService.findByTeacherId("T001").get(0).getName()).isEqualTo("Math Class");
+    }
+
+    @Test
+    void testFindById(){
+        when(bookingRepository.findById(1L)).thenReturn(Optional.ofNullable(booking));
+        assertThat(bookingService.findById(1L).get().getStartTime()).isEqualTo(LocalTime.of(10,0));
+
+    }
+
+
+
 }
 

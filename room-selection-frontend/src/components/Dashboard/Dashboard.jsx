@@ -88,7 +88,7 @@ const Dashboard = () => {
             <Sidebar />
             <div className="dashboard-content">
                 <h1>Dashboard</h1>
-
+                <p className={"dashboard-text"}>Welcome to the dashboard! Here you can find all your upcoming and past bookings. If necessary, you can modify or cancel one of your future bookings.</p>
                 <div className="filter-buttons">
                     <button
                         onClick={() => handleFilterChange('upcoming')}

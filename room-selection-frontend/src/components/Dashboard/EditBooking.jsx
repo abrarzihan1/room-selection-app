@@ -12,6 +12,7 @@ const EditBooking = () => {
         date: '',
         startTime: '',
     });
+
     const [availableTimes, setAvailableTimes] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -88,6 +89,7 @@ const EditBooking = () => {
             <Sidebar />
             <div className="dashboard-content">
                 <h1>Edit Booking</h1>
+                <p className="dashboard-text">Modify the date and time of your booking.</p>
                 <div className="edit-form">
                     <input
                         type="date"

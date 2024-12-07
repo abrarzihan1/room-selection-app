@@ -53,6 +53,7 @@ function BookingRoomCriteria({formData, handleChange, nextStep, prevStep}) {
                     min="1"
                     placeholder="Enter capacity"
                     value={formData.capacity}
+                    className={"booking-room-capacity-input"}
                     onChange={e => handleChange('capacity', parseInt(e.target.value) || 0)}
                 />
             </div>

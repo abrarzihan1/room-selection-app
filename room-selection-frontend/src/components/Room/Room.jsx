@@ -39,6 +39,7 @@ function Room() {
             <Sidebar />
             <div className={"dashboard-content"}>
                 <h1>Rooms</h1>
+                <p className={"dashboard-text"}>You can details of all of the rooms in this page. You can also search for a particular room with its room ID.</p>
 
                 <div className="room-search-container">
                     <input

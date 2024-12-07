@@ -32,9 +32,11 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
 
     return (
         <nav className='nav-container'>
-            <h2 className="teachspace">TeachSpace</h2>
+            <Link to='/'>
+                <h2 className="teachspace">TeachSpace</h2>
+            </Link>
             <ul>
-                <Link to='/'>
+            <Link to='/'>
                     <li className={"nav-link"}>Home</li>
                 </Link>
                 <Link to='/booking'>

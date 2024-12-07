@@ -73,8 +73,7 @@ function Summary({ formData, prevStep }) {
                     {successMessage && (
                         <div className="custom-success">
                             <h1>Booking Confirmed!</h1>
-                            <p>Your booking has been successful!</p>
-                            <p>We look forward to seeing you!</p>
+                            <p>Your booking has been successful! We look forward to seeing you!</p>
                         </div>
                     )}
 

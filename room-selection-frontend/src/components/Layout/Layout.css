@@ -21,6 +21,12 @@
     margin: 20px;
 }
 
+.dashboard-text {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
 @media (max-width: 768px) {
     .dashboard-container {
         margin-left: 0;

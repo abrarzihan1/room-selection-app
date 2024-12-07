@@ -13,3 +13,11 @@
     font-size: 20px;
     color: #333;
 }
+
+.custom-content > div > p {
+    font-size: 18px;
+}
+
+.additional-actions {
+    margin-top: 10px;
+}

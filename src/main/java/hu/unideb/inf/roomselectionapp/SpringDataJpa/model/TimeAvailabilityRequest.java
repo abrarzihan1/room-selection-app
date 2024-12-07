@@ -8,4 +8,9 @@ import java.time.LocalDate;
 public class TimeAvailabilityRequest {
     private String roomId;
     private LocalDate date;
+
+    public TimeAvailabilityRequest(String roomId, LocalDate date) {
+        this.roomId = roomId;
+        this.date = date;
+    }
 }

@@ -84,10 +84,9 @@ This layered approach ensures that all aspects of the application are thoroughly
 
 Before running the project, make sure you have Node.js installed.
 
-Feel free to reach out if you encounter any issues or have suggestions for improvements. Happy coding! 🚀
-
 ## Screenshots
 ![Screenshot_5-12-2024_19407_localhost](https://github.com/user-attachments/assets/a7563aeb-1de1-407e-81b7-ec197c33f4d8)
 ![Screenshot_5-12-2024_194041_localhost](https://github.com/user-attachments/assets/b95bb32b-92cd-44a4-9de3-948172259776)
 
+Feel free to reach out if you encounter any issues or have suggestions for improvements. Happy coding! 🚀
 

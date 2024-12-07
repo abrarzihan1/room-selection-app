@@ -26,6 +26,7 @@ const EditBooking = () => {
                     withCredentials: true
                 });
                 setBooking(response.data);
+                fetchAvailableTimes(response.data.date);
             } catch (error) {
                 console.error('Error fetching booking details:', error);
             }
@@ -88,6 +89,7 @@ const EditBooking = () => {
             <Sidebar />
             <div className="dashboard-content">
                 <h1>Edit Booking</h1>
+                <p className="dashboard-text">Modify the date and time of your booking.</p>
                 <div className="edit-form">
                     <input
                         type="date"

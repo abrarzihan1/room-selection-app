@@ -80,7 +80,7 @@ public class BookingServiceImplTest {
 
     @Test
     void testFindAvailableTimes() {
-        // Arrange
+       
         TimeAvailabilityRequest request = new TimeAvailabilityRequest("R101", LocalDate.of(2024, 12, 5));
         List<LocalTime> bookedTimes = List.of(LocalTime.of(10, 0), LocalTime.of(12, 0));
         when(bookingRepository.findByRoomIdAndDate("R101", LocalDate.of(2024, 12, 5)))
@@ -89,10 +89,10 @@ public class BookingServiceImplTest {
                         new Booking(3L, "R101", "T003", LocalDate.of(2024, 12, 5), LocalTime.of(12, 0), "Chemistry Class")
                 ));
 
-        // Act
+        
         List<LocalTime> availableTimes = bookingService.findAvailableTimes(request);
 
-        // Assert
+        
         List<LocalTime> expectedTimes = List.of(
                 LocalTime.of(8, 0),
                 LocalTime.of(14, 0),

@@ -66,7 +66,6 @@ Tools like JUnit, Mockito, and AssertJ are used to test the functionality:
 This layered approach ensures that all aspects of the application are thoroughly tested and that changes to one layer don’t introduce errors in other layers.
 
 # Frontend
----
 
 ## Features
 
@@ -75,15 +74,11 @@ This layered approach ensures that all aspects of the application are thoroughly
 - **Booking Management**: View and cancel existing bookings.
 - **Authentication**: Secure user login and signup functionality.
 
----
-
 ## Tech Stack
 
 - **React**: Frontend framework for building the user interface.
 - **Axios**: For making HTTP requests to the backend API.
 - **React Router**: For managing navigation within the app.
-
----
 
 ## Prerequisites
 

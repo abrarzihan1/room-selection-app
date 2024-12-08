@@ -20,7 +20,6 @@ TeachSpace is an intuitive web-based platform designed to simplify and optimize 
 - Update the API URLs in the frontend code to match your backend.
 
 ## Usage:
-
 Once the application is running, users can:
 
 - **Login**: Log in as a teacher using the credentials set in the system.

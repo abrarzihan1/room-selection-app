@@ -34,7 +34,7 @@ Once the application is running, users can:
 
 The application uses JWT (JSON Web Tokens) for authentication. After logging in, a token is issued, which must be included in the headers of subsequent API requests.
 
-### DataBase
+### DataBase:
 
 The application uses MySQL as its database, integrated seamlessly with Spring Boot through JPA (Java Persistence API) for Object-Relational Mapping (ORM). This allows the system to efficiently map Java objects to database tables, ensuring smooth data operations such as retrieving, updating, and deleting records.
 
@@ -47,7 +47,7 @@ The architecture follows a layered pattern, structured into Controller, Service,
 
 In the future, the system is planned to transition to a cloud-based database for improved scalability, reliability, and performance, enabling more efficient data management and access in larger and distributed environments.
 
-### Testing
+### Testing:
 
 For testing, the application uses an H2 database, which is an in-memory database that provides an efficient and lightweight solution for small-scale testing environments. H2 is ideal for unit and integration tests, as it ensures that tests are executed in a clean, isolated environment without needing a full-scale database setup.
 
@@ -65,26 +65,26 @@ Tools like JUnit, Mockito, and AssertJ are used to test the functionality:
   
 This layered approach ensures that all aspects of the application are thoroughly tested and that changes to one layer don’t introduce errors in other layers.
 
-## Frontend
+## Frontend:
 
-### Features
+### Features:
 
 - **Room Search**: View available time and date for particular rooms.
 - **Room Booking**: Teachers can book rooms and update bookings.
 - **Booking Management**: View and cancel existing bookings.
 - **Authentication**: Secure user login and signup functionality.
 
-### Tech Stack
+### Tech Stack:
 
 - **React**: Frontend framework for building the user interface.
 - **Axios**: For making HTTP requests to the backend API.
 - **React Router**: For managing navigation within the app.
 
-### Prerequisites
+### Prerequisites:
 
 Before running the project, make sure you have Node.js installed.
 
-## Screenshots
+## Screenshots:
 ![Screenshot_5-12-2024_19407_localhost](https://github.com/user-attachments/assets/a7563aeb-1de1-407e-81b7-ec197c33f4d8)
 ![Screenshot_5-12-2024_194041_localhost](https://github.com/user-attachments/assets/b95bb32b-92cd-44a4-9de3-948172259776)
 

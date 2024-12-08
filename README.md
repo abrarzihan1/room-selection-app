@@ -35,7 +35,6 @@ The application uses JWT (JSON Web Tokens) for authentication. After logging in,
 The application uses MySQL as its database, integrated seamlessly with Spring Boot through JPA (Java Persistence API) for Object-Relational Mapping (ORM). This allows the system to efficiently map Java objects to database tables, ensuring smooth data operations such as retrieving, updating, and deleting records.
 
 The architecture follows a layered pattern, structured into Controller, Service, Repository, and Model layers:
-
 - **Controller**: Handles HTTP requests and returns appropriate responses.
 - **Service**: Contains business logic, orchestrating the flow of data between the controller and repository layers.
 - **Repository**: Interfaces with the database using JPA, managing data persistence and queries.

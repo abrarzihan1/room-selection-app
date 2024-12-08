@@ -16,7 +16,6 @@ TeachSpace is an intuitive web-based platform designed to simplify and optimize 
 - **Testing**: JUnit, AssertJ, and Mockito are used for unit testing, improving assertions, and mocking dependencies to ensure backend functionality and reliability.
 
 ### Configuration:
-
 - Make sure the backend is running on a port different from the frontend (`http://localhost:8082` is the default for Spring Boot).
 - Update the API URLs in the frontend code to match your backend.
 

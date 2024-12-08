@@ -75,7 +75,6 @@ This layered approach ensures that all aspects of the application are thoroughly
 - **React Router**: For managing navigation within the app.
 
 ### Prerequisites:
-
 Before running the project, make sure you have Node.js installed.
 
 ## Screenshots:

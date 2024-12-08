@@ -6,7 +6,7 @@ const About = () => {
         { name: 'Marcio Tavares', role: 'Frontend Developer', image: '/img.png' },
         { name: 'Abrar Zihan', role: 'Backend Developer', image: '/cat.png' },
         { name: 'Anurag Tiwari', role: 'Database Developer', image: '/horse.png' },
-        { name: 'Bishoy Mouris', role: 'Software Tester', image: 'luffy.png' },
+        { name: 'Bishoy Mouris', role: 'Software Tester', image: 'bishoy.jpg' },
     ];
 
     return (

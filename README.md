@@ -8,7 +8,6 @@ TeachSpace is an intuitive web-based platform designed to simplify and optimize 
 - **Responsive Design**: Works seamlessly on desktop and mobile devices for maximum accessibility.
 
 ## Tech Stack:
-
 - **Frontend**: React.js, CSS, HTML
 - **Backend**: Java, Spring Boot
 - **Database**: MySQL,H2Database

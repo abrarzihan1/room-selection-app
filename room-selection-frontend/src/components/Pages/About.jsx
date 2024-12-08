@@ -5,7 +5,7 @@ const About = () => {
     const contributors = [
         { name: 'Marcio Tavares', role: 'Frontend Developer', image: '/Anurag.png' },
         { name: 'Abrar Zihan', role: 'Backend Developer', image: '/cat.png' },
-        { name: 'Anurag Tiwari', role: 'Database Developer', image: '/horse.png' },
+        { name: 'Anurag Tiwari', role: 'Database Developer', image: '/Anurag.png' },
         { name: 'Bishoy Mouris', role: 'Software Tester', image: 'bishoy.jpg' },
     ];
 

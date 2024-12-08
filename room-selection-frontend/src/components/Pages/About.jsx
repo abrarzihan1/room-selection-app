@@ -2,6 +2,13 @@ import React from 'react';
 import './About.css';
 
 const About = () => {
+    const contributors = [
+        { name: 'Marcio Tavares', role: 'Frontend Developer', image: '/img.png' },
+        { name: 'Abrar Zihan', role: 'Backend Developer', image: '/cat.png' },
+        { name: 'Anurag Tiwari', role: 'Database Developer', image: '/horse.png' },
+        { name: 'Bishoy Mouris', role: 'Software Tester', image: 'luffy.png' },
+    ];
+
     return (
         <div className="about-us-container">
             <h1 className="about-us-title">About Us</h1>
@@ -14,6 +21,24 @@ const About = () => {
             <p className="about-us-text">
                 Whether you're a professor looking for a quiet room for office hours or a department head organizing a conference, TeachSpace provides a seamless solution that ensures availability, convenience, and peace of mind.
             </p>
+
+            {/* Contributors Section */}
+            <div className="contributors-section">
+                <h2 className="contributors-title">Meet Our Team</h2>
+                <div className="contributors-grid">
+                    {contributors.map((contributor, index) => (
+                        <div key={index} className="contributor-card">
+                            <img
+                                src={contributor.image}
+                                alt={contributor.name}
+                                className="contributor-image"
+                            />
+                            <h3 className="contributor-name">{contributor.name}</h3>
+                            <p className="contributor-role">{contributor.role}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
 
             <div className="contact-us-section">
                 <h2>Contact Us</h2>

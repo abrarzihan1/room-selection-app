@@ -31,7 +31,6 @@ Once the application is running, users can:
 The application uses JWT (JSON Web Tokens) for authentication. After logging in, a token is issued, which must be included in the headers of subsequent API requests.
 
 ### DataBase:
-
 The application uses MySQL as its database, integrated seamlessly with Spring Boot through JPA (Java Persistence API) for Object-Relational Mapping (ORM). This allows the system to efficiently map Java objects to database tables, ensuring smooth data operations such as retrieving, updating, and deleting records.
 
 The architecture follows a layered pattern, structured into Controller, Service, Repository, and Model layers:

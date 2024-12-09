@@ -3,7 +3,7 @@ import './About.css';
 
 const About = () => {
     const contributors = [
-        { name: 'Marcio Tavares', role: 'Frontend Developer', image: '/cat.png' },
+        { name: 'Marcio Tavares', role: 'Frontend Developer', image: '/marcio.jpg' },
         { name: 'Abrar Zihan', role: 'Backend Developer', image: '/Abrar.jpg' },
         { name: 'Anurag Tiwari', role: 'Database Developer', image: '/Anurag.png' },
         { name: 'Bishoy Mouris', role: 'Software Tester', image: 'bishoy.jpg' },

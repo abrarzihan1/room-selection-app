@@ -1,6 +1,6 @@
 # TeachSpace - Classroom and Facility Booking System
 
-TeachSpace is a web-based application designed to streamline the process of reserving classrooms and facilities for academic purposes. By centralizing and automating the booking process, it enhances efficiency and convenience for professors.
+TeachSpace is a Web-based application designed to streamline the process of reserving classrooms and facilities for academic purposes. By centralizing and automating the booking process, it enhances efficiency and convenience for professors.
 
 ## Features:
 

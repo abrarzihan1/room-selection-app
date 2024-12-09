@@ -39,7 +39,7 @@ const App = () => {
                     />
                     <Route
                         path="/booking"
-                        element={isAuthenticated ? <Booking />: <Navigate to="login" />}
+                        element={isAuthenticated ? <Booking />: <Navigate to="/login" />}
                     />
                     <Route
                         path="/profile"

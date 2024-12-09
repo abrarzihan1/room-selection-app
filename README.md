@@ -82,6 +82,7 @@ Before running the project, make sure you have Node.js installed.
 ![Screenshot_5-12-2024_194041_localhost](https://github.com/user-attachments/assets/b95bb32b-92cd-44a4-9de3-948172259776)
 ![a64f5ada-f362-4ae8-aa6c-8d542455c18f](https://github.com/user-attachments/assets/bb6d7b46-8a98-4e3e-9c68-9eab5ca42d0f)
 ![c8597ca5-e4e7-4dcc-abbb-751c345e6386](https://github.com/user-attachments/assets/6702d217-7a5e-4728-bf52-80a3eabcd50c)
+![c069ae88-c099-47fa-8a21-3cc5931b7e85](https://github.com/user-attachments/assets/41e26372-7a06-4eb6-b511-9533b427b4fd)
 
 
 

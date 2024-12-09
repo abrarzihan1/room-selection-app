@@ -63,14 +63,12 @@ This layered approach ensures that all aspects of the application are thoroughly
 ## Frontend:
 
 ### Features:
-
 - **Room Search**: View available time and date for particular rooms.
 - **Room Booking**: Teachers can book rooms and update bookings.
 - **Booking Management**: View and cancel existing bookings.
 - **Authentication**: Secure user login and signup functionality.
 
 ### Tech Stack:
-
 - **React**: Frontend framework for building the user interface.
 - **Axios**: For making HTTP requests to the backend API.
 - **React Router**: For managing navigation within the app.

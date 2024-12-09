@@ -3,6 +3,7 @@ package hu.unideb.inf.roomselectionapp.controller;
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.controller.TeacherController;
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.model.Teacher;
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.service.TeacherService;
+import hu.unideb.inf.roomselectionapp.security.util.JwtTokenUtil;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,6 +28,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc(addFilters = false)
 public class TeacherControllerTest {
 
+    @MockBean
+    private JwtTokenUtil jwtTokenUtil;
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -50,5 +54,74 @@ public class TeacherControllerTest {
     void tearDown() {
         teacherList.clear();
     }
+
+    @Test
+    void testGetTeacher() throws Exception {
+        when(teacherService.getTeacher("T001")).thenReturn(teacher1);
+
+        mockMvc.perform(get("/api/private/teacher/get/T001"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.teacherId").value("T001"))
+                .andExpect(jsonPath("$.name").value("Dr. Alice Johnson"))
+                .andExpect(jsonPath("$.email").value("alice.johnson@unideb.hu"))
+                .andExpect(jsonPath("$.department").value("Mathematics"));
+    }
+
+    @Test
+    void testGetAllTeachers() throws Exception {
+        when(teacherService.getAllTeachers()).thenReturn(teacherList);
+
+        mockMvc.perform(get("/api/private/teacher/all"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.size()").value(2))
+                .andExpect(jsonPath("$[0].teacherId").value("T001"))
+                .andExpect(jsonPath("$[1].teacherId").value("T002"));
+    }
+
+    @Test
+    void testCreateTeacher() throws Exception {
+        // Mock behavior for createTeacher method to return a String response
+        when(teacherService.createTeacher(any(Teacher.class))).thenReturn("Teacher added succesfully");
+
+        // Perform HTTP POST request
+        mockMvc.perform(post("/api/private/teacher")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                            {
+                                "teacherId": "T001",
+                                "name": "Dr. Alice Johnson",
+                                "email": "alice.johnson@unideb.hu",
+                                "department": "Mathematics"
+                            }
+                            """))
+                .andExpect(status().isOk())
+                .andExpect(content().string("Teacher added succesfully"));
+    }
+
+    @Test
+    void testUpdateTeacher() throws Exception {
+        when(teacherService.updateTeacher(any(Teacher.class))).thenReturn("Teacher updated succesfully");
+
+        mockMvc.perform(put("/api/private/teacher")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {
+                                    "teacherId": "T001",
+                                    "name": "Dr. Alice Johnson",
+                                    "email": "alice.johnson@unideb.hu",
+                                    "department": "Mathematics"
+                                }
+                                """))
+                .andExpect(status().isOk())
+                .andExpect(content().string("Teacher Updadated Succesfully"));
+    }
+
+    @Test
+    void testDeleteTeacher() throws Exception {
+        mockMvc.perform(delete("/api/private/teacher/T001"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("Teacher Removed Succesfully"));
+    }
+
 
 }

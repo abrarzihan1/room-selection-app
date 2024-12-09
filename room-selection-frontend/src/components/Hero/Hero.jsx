@@ -1,17 +1,18 @@
-import React from 'react'
-import './Hero.css'
-
+import React from 'react';
+import './Hero.css';
+import heroimage from '../assets/heroimage.png'; // Replace with your image path
 
 const Hero = () => {
-  return (
-    <div className='hero'>
-      <div className='hero-text'>
-        <h1>Your space, Your schedule</h1>
-        <p>Effortless Room Booking for Every Educator</p>
-      </div>
-      
-    </div>
-  )
-}
+    return (
+        <div className="hero">
+            <div className="hero-content">
+                <div className="hero-text">
+                    <h1>TeachSpace</h1>
+                    <p>Effortless Room Booking for Every Educator</p>
+                </div>
+            </div>
+        </div>
+    );
+};
 
-export default Hero
+export default Hero;

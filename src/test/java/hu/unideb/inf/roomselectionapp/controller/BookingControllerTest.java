@@ -69,7 +69,6 @@ public class BookingControllerTest {
 
         when(bookingService.save(any(Booking.class))).thenReturn("A booking already exists for the selected room, date, and time.");
 
-
         mockMvc.perform(post("/api/private/booking")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"roomId\":\"Room1\", \"teacherId\":\"T123\", \"date\":\"2024-12-09\", \"startTime\":\"10:00\", \"name\":\"Test Booking\"}"))
@@ -78,5 +77,45 @@ public class BookingControllerTest {
 
         verify(bookingService, times(1)).save(any(Booking.class));
     }
+
+    @Test
+    public void testGetBookingByTeacher() throws Exception {
+        // Given
+        when(bookingService.findByTeacherId("T123")).thenReturn(Collections.singletonList(booking));
+
+        // When & Then
+        mockMvc.perform(get("/api/private/booking/teacher/T123"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].teacherId").value("T123"))
+                .andExpect(jsonPath("$[0].roomId").value("Room1"));
+
+        verify(bookingService, times(1)).findByTeacherId("T123");
+    }
+
+    @Test
+    public void testGetBookingById() throws Exception {
+
+        when(bookingService.findById(1L)).thenReturn(Optional.of(booking));
+
+        mockMvc.perform(get("/api/private/booking/booking/1"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.teacherId").value("T123"))
+                .andExpect(jsonPath("$.roomId").value("Room1"));
+
+        verify(bookingService, times(1)).findById(1L);
+    }
+
+    @Test
+    public void testDeleteBooking_Success() throws Exception {
+
+        when(bookingService.deleteBookingByBookingId(1L)).thenReturn(true);
+
+        mockMvc.perform(delete("/api/private/booking/booking/1"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("Booking deleted successfully"));
+
+        verify(bookingService, times(1)).deleteBookingByBookingId(1L);
+    }
+
 
 }

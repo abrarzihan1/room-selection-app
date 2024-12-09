@@ -80,6 +80,10 @@ Before running the project, make sure you have Node.js installed.
 ## Screenshots:
 ![Screenshot_5-12-2024_19407_localhost](https://github.com/user-attachments/assets/a7563aeb-1de1-407e-81b7-ec197c33f4d8)
 ![Screenshot_5-12-2024_194041_localhost](https://github.com/user-attachments/assets/b95bb32b-92cd-44a4-9de3-948172259776)
+![c8597ca5-e4e7-4dcc-abbb-751c345e6386](https://github.com/user-attachments/assets/6702d217-7a5e-4728-bf52-80a3eabcd50c)
+
+
+
 
 Feel free to reach out if you encounter any issues or have suggestions for improvements. Happy coding! 🚀
 

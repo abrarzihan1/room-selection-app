@@ -69,7 +69,7 @@ public class BookingControllerTest {
 
         when(bookingService.save(any(Booking.class))).thenReturn("A booking already exists for the selected room, date, and time.");
 
-       
+
         mockMvc.perform(post("/api/private/booking")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"roomId\":\"Room1\", \"teacherId\":\"T123\", \"date\":\"2024-12-09\", \"startTime\":\"10:00\", \"name\":\"Test Booking\"}"))

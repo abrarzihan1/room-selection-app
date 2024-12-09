@@ -25,6 +25,7 @@ public class RoomBookingControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+
     @Test
     void testGetAvailableTimes_withSpecificDate() throws Exception {
         // Test with the specific date "2024-11-27"

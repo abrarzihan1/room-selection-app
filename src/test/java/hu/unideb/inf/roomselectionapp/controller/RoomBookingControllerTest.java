@@ -25,6 +25,22 @@ public class RoomBookingControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    @Test
+    void testGetAvailableTimes_withSpecificDate() throws Exception {
+        // Test with the specific date "2024-11-27"
+        mockMvc.perform(get("/api/available-times")
+                        .param("date", "2024-11-27"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("[\"9:15\", \"10:00\", \"10:15\"]"));
+    }
 
+    @Test
+    void testGetAvailableTimes_withDifferentDate() throws Exception {
+        // Test with a different date, e.g., "2024-11-28"
+        mockMvc.perform(get("/api/available-times")
+                        .param("date", "2024-11-28"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("[\"8:00\", \"9:00\", \"11:00\", \"14:00\"]"));
+    }
 }
 

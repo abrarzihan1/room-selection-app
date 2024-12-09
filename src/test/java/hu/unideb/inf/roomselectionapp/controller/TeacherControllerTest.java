@@ -29,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class TeacherControllerTest {
 
     @MockBean
-    private JwtTokenUtil  jwtTokenUtil;
+    private JwtTokenUtil jwtTokenUtil;
 
     @Autowired
     private MockMvc mockMvc;

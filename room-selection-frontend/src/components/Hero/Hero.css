@@ -1,33 +1,64 @@
-.hero{
-  flex: 1;
-  /*width: 100%;*/
-  min-height: 100vh;
-/*background-image: url('./components/assets/kassai.jpg');*/
-  background-color:rgb(151, 172, 177);
-  background-size: cover;
-  background-position: center;
-  color: #fff;
+
+.hero {
+  padding: 10rem 0rem 10rem 0;
+  background-image: linear-gradient(140deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url("../assets/img.png");
+  background-position: 0px 0px, 80% 20%;
+  background-size: auto, cover;
+  background-repeat: repeat, no-repeat;
+  background-attachment: scroll, fixed;
+  border-bottom: 1px solid #393939;
+height: 100%;
+display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.hero-content {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  flex-direction: row;
-}
-.hero-text{
-  text-align: center;
-  max-width: 800px;
-}
-.hero-text h1{
-  font-size: 60px;
-    font-weight: 600;}
-
-.hero-text p{
-  max-width: 700px;
-  margin: 10px auto 20px;
-  line-height: 1.4;
-}
-.menu{
-  justify-content: center;
+  gap: 0.25rem;
   align-items: center;
-  padding-left: 0.5rem;
+  width: 100%;
+}
 
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #f3f4f6;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: #d1d5db;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.btn-register {
+  padding: 10px 20px;
+  background-color: #f37c22;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-register:hover {
+  background-color: #d4661e;
+}
+
+
+.hero-image {
+  max-width: 50%;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
 }

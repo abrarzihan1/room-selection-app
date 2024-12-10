@@ -24,18 +24,17 @@ TeachSpace is an intuitive web-based platform designed to simplify and optimize 
 
 ## Usage:
 Once the application is running, users can:
-
 - **Login**: Log in as a teacher using the credentials set in the system.
 - **Book Rooms**: Reserve available rooms for lectures or other academic purposes.
 - **Manage Bookings**: View and delete upcoming or past bookings.
 
 ### Authentication:
 
-The application uses JWT (JSON Web Tokens) for authentication. After logging in, a token is issued, which must be included in the headers of subsequent API requests.
+The application uses JWT (JSON Web Tokens) for authentication. After logging in a token is issued, which is included in the headers of subsequent API requests.
 
 ### DataBase:
 
-The application uses MySQL as its database, integrated seamlessly with Spring Boot through JPA (Java Persistence API) for Object-Relational Mapping (ORM). This allows the system to efficiently map Java objects to database tables, ensuring smooth data operations such as retrieving, updating, and deleting records.
+The application uses MySQL as its level of persistence, integrated seamlessly with Spring Boot through JPA (Java Persistence API) for Object-Relational Mapping (ORM). This allows the system to efficiently map Java objects to database tables, ensuring smooth data operations such as retrieving, updating, and deleting records.
 
 The architecture follows a layered pattern, structured into Controller, Service, Repository, and Model layers:
 - **Controller**: Handles HTTP requests and returns appropriate responses.

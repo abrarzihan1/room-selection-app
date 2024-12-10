@@ -70,7 +70,11 @@ This layered approach ensures that all aspects of the application are thoroughly
 - **Authentication**: Secure user login and signup functionality.
 
 
-
+### Tech Stack:
+- **React**: Frontend framework for building the user interface.
+- **Axios**: For making HTTP requests to the backend API.
+- **React Router**: For managing navigation within the app.
+  
 ### Prerequisites:
 Before running the project, make sure you have **Node.js** installed.
 

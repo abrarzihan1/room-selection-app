@@ -2,7 +2,13 @@
 
 TeachSpace is an intuitive web-based platform designed to simplify and optimize the reservation of classrooms and academic facilities. By centralizing and automating the booking process, it empowers professors with a seamless, efficient, and user-friendly experience, ensuring convenience and productivity.
 
-
+## Features:
+- **Effortless Room Booking**: Professors can quickly search for and reserve available classrooms or facilities in real time with ease.
+- **Booking Management Made Simple**: Access, review, and manage both upcoming and past reservations at a glance.
+- **Fully Responsive Design**: Enjoy a seamless user experience across desktop and mobile devices, ensuring maximum accessibility anytime, anywhere.
+- **Room Search**: Quickly check available dates and times for specific rooms in real time.
+- **Room Booking**: Easily book rooms for your desired date and time. Update your reservations as needed for flexibility.
+- **Booking Management**: View all your reservations in one place. Cancel or modify bookings with ease.
 
 ## Tech Stack:
 - **Frontend**: React.js, CSS, HTML

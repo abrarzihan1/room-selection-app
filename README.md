@@ -1,15 +1,16 @@
 # TeachSpace - Classroom and Facility Booking System
 
-TeachSpace is a Web-based application designed to streamline the process of reserving classrooms and facilities for academic purposes. By centralizing and automating the booking process, it enhances efficiency and convenience for professors.
+TeachSpace is an intuitive web-based platform designed to simplify and optimize the reservation of classrooms and academic facilities. By centralizing and automating the booking process, it empowers professors with a seamless, efficient, and user-friendly experience, ensuring convenience and productivity.
 
 ## Features:
-
-- **Easy Room Booking**: Professors can easily find and book available classrooms or facilities in real-time.
-- **Upcoming & Past Bookings**: View and manage both upcoming and past bookings.
-- **Responsive Design**: Works seamlessly on desktop and mobile devices for maximum accessibility.
+- **Effortless Room Booking**: Professors can quickly search for and reserve available classrooms or facilities in real time with ease.
+- **Booking Management Made Simple**: Access, review, and manage both upcoming and past reservations at a glance.
+- **Fully Responsive Design**: Enjoy a seamless user experience across desktop and mobile devices, ensuring maximum accessibility anytime, anywhere.
+- **Room Search**: Quickly check available dates and times for specific rooms in real time.
+- **Room Booking**: Easily book rooms for your desired date and time. Update your reservations as needed for flexibility.
+- **Booking Management**: View all your reservations in one place. Cancel or modify bookings with ease.
 
 ## Tech Stack:
-
 - **Frontend**: React.js, CSS, HTML
 - **Backend**: Java, Spring Boot
 - **Database**: MySQL,H2Database
@@ -18,12 +19,10 @@ TeachSpace is a Web-based application designed to streamline the process of rese
 - **Testing**: JUnit, AssertJ, and Mockito are used for unit testing, improving assertions, and mocking dependencies to ensure backend functionality and reliability.
 
 ### Configuration:
-
 - Make sure the backend is running on a port different from the frontend (`http://localhost:8082` is the default for Spring Boot).
 - Update the API URLs in the frontend code to match your backend.
 
 ## Usage:
-
 Once the application is running, users can:
 
 - **Login**: Log in as a teacher using the credentials set in the system.
@@ -39,7 +38,6 @@ The application uses JWT (JSON Web Tokens) for authentication. After logging in,
 The application uses MySQL as its database, integrated seamlessly with Spring Boot through JPA (Java Persistence API) for Object-Relational Mapping (ORM). This allows the system to efficiently map Java objects to database tables, ensuring smooth data operations such as retrieving, updating, and deleting records.
 
 The architecture follows a layered pattern, structured into Controller, Service, Repository, and Model layers:
-
 - **Controller**: Handles HTTP requests and returns appropriate responses.
 - **Service**: Contains business logic, orchestrating the flow of data between the controller and repository layers.
 - **Repository**: Interfaces with the database using JPA, managing data persistence and queries.
@@ -68,25 +66,34 @@ This layered approach ensures that all aspects of the application are thoroughly
 ## Frontend:
 
 ### Features:
-
 - **Room Search**: View available time and date for particular rooms.
 - **Room Booking**: Teachers can book rooms and update bookings.
 - **Booking Management**: View and cancel existing bookings.
 - **Authentication**: Secure user login and signup functionality.
 
 ### Tech Stack:
-
 - **React**: Frontend framework for building the user interface.
 - **Axios**: For making HTTP requests to the backend API.
 - **React Router**: For managing navigation within the app.
 
 ### Prerequisites:
-
 Before running the project, make sure you have Node.js installed.
 
 ## Screenshots:
-![Screenshot_5-12-2024_19407_localhost](https://github.com/user-attachments/assets/a7563aeb-1de1-407e-81b7-ec197c33f4d8)
 ![Screenshot_5-12-2024_194041_localhost](https://github.com/user-attachments/assets/b95bb32b-92cd-44a4-9de3-948172259776)
+![a64f5ada-f362-4ae8-aa6c-8d542455c18f](https://github.com/user-attachments/assets/bb6d7b46-8a98-4e3e-9c68-9eab5ca42d0f)
+![Screenshot_5-12-2024_19407_localhost](https://github.com/user-attachments/assets/a7563aeb-1de1-407e-81b7-ec197c33f4d8)
+![da7f7ca0-9c6d-4aaf-9016-259513e1331f](https://github.com/user-attachments/assets/ae78c765-a0d0-43db-8f2c-b3aceb6aa70f)
+![da4da09a-4972-4485-be78-50fcaf424709](https://github.com/user-attachments/assets/28b4ec32-6552-4f16-8010-cb79a2efc971)
+![c9136327-4f61-4531-930e-b6a5e1c2896a](https://github.com/user-attachments/assets/9fe51940-1674-43bb-ae09-e250d4eca6b0)
+![754a2903-b0bd-43ef-beac-f6f50765f12f](https://github.com/user-attachments/assets/3e44641c-e5b6-4a84-99d6-ed90d8783c26)
+![c8597ca5-e4e7-4dcc-abbb-751c345e6386](https://github.com/user-attachments/assets/6702d217-7a5e-4728-bf52-80a3eabcd50c)
+
+
+
+
+
+
 
 Feel free to reach out if you encounter any issues or have suggestions for improvements. Happy coding! 🚀
 

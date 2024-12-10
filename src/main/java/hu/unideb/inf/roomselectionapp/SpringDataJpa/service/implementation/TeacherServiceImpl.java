@@ -1,5 +1,6 @@
 package hu.unideb.inf.roomselectionapp.SpringDataJpa.service.implementation;
 
+import hu.unideb.inf.roomselectionapp.SpringDataJpa.exception.TeacherNotFoundException;
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.model.Teacher;
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.repository.TeacherRepository;
 import hu.unideb.inf.roomselectionapp.SpringDataJpa.service.TeacherService;
@@ -38,6 +39,8 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public Teacher getTeacher(String teacherId) {
+        if(teacherRepository.findById(teacherId).isEmpty())
+            throw new TeacherNotFoundException("Requested Teacher Does Not Exist ");
        return teacherRepository.findById(teacherId).get();
 
     }

@@ -36,6 +36,7 @@ public class BookingController {
 
     @GetMapping("/booking/{bookingId}")
     public Optional<Booking> getBookingById(@PathVariable long bookingId) {
+
         return bookingService.findById(bookingId);
     }
 
